@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-class PDOConnectionFactory {
+abstract class  PDOConnectionFactory {
     //put your code here
     // recebe a conexão
     public $con = null;
@@ -56,7 +56,8 @@ class PDOConnectionFactory {
 
     // desconecta
     public function Close(){
-            if( $this->con != null )
-                    $this->con = null;
+        if( $this->con != null) {
+            $this->con = null;
+        }
     }
 }
