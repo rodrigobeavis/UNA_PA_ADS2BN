@@ -1,0 +1,76 @@
+body{
+background-image:url("../img/grey_@2X.png");
+
+}
+
+.headerindex{
+    font-size: 25px;
+    text-align: center;
+
+    
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #ccc;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.meio{
+	margin: 0px auto;
+ 	margin-top: 10px;
+	padding: 10px;
+	width: 940px;
+	background-color: #fff;
+}
+
+.esquerda{
+	width: 240px;
+	height: 100px;
+	float: left;
+}
+
+.direita{
+	width: 660px;
+	float: right;
+	padding-left: 40px;
+}
+
+.logo{
+	background-image: url(../img/e2g12a.png);
+	background-size: contain;
+	width: 240px;
+	height: 85px;
+}
+
+nav#menu{
+	margin: 10px 5px;
+}
+
+nav#menu a{
+	background-color: #ccc;
+        padding: 5px;
+	width: 100%;
+	color: green;
+	text-decoration: none;
+	margin: 5px 0px;
+	font-size: 16px;
+	display: block;
+	float: left;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+nav#menu a:hover{
+	background-color: green;
+	color: #fff;
+	 -webkit-transition: background-color 2s;
+}
+
+.clear{
+	clear: both;
+}
