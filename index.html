@@ -16,12 +16,15 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 jumbotron">
-                    <header class="headerindex"> SISTEMA DE GERENCIAMENTO DE REQUISIÇÕES E INCIDENTES NA ÁREA DE TI </header>                    
+            <div class="row cabecalho jumbotron">
+                <div class="col-md-3">
+                    <header class="headerindex"><img src="asstes/img/Info Diag 1.jpg" alt=""></header>                    
+                </div>
+                <div class="col-md-9">
+                    <header class="headerindex"><br>SISTEMA DE GERENCIAMENTO DE REQUISIÇÕES E INCIDENTES NA ÁREA DE TI </header>                    
                 </div>
             </div>
-
+            <article>
             <div class="row">
                 <div class="col-md-12">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -60,9 +63,9 @@
                     </article>
                 </div>
                 <div class="col-md-3">
-                    <form method='POST' action='Autenticar.php'>
+                    <form method='POST' action='login.php'>
                         <header class="label label-default titulo2">Acesso</header><br><br>
-                        <input type="email" name='email' id="email" class="form-control" placeholder="Insira seu email"  required><br>
+                        <input type="email" name='email' id="email" class="form-control" placeholder="Insira seu login"  required><br>
                         <input placeholder="Senha" name='senha' id="senha" class="form-control" type="password"  required><br>
                         <input class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar">
                     </form>
@@ -71,16 +74,16 @@
                     <form class="" method='POST' action=''>
                         <header class="label label-default titulo2">Contato</header><br><br>
                         <article><a href="contato.html"><img src="asstes/img/mibew_on.gif"></a></article>
-               </div>
-           </div>           
+                </div>
+            </div>           
             <div class="row">
                 <div class="col-md-12">
-                   <footer class="jumbotron">
-
-                   </footer>
+                    <footer class="jumbotron">
+                        
+                    </footer>
                 </div>
             </div>
-
-                </div>
-                </body>
-                </html>
+        </article>
+        </div>
+    </body>
+</html>
