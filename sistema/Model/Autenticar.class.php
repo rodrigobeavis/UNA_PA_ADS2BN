@@ -27,42 +27,18 @@ class Autenticar {
          foreach ($verificar as $value) {
              $identifica = $value[0];
          }
-         var_dump($identifica);
-         $this->direcionar($identifica);
+         $this->direcionar($identifica);  
     }
     private function direcionar($identifica) {
         
-        if($identifica == 1 && $identifica < 2){
-            
-            header("refresh: 3; url=areauser.html");
-             
+        if($identifica){
+            echo 'Logado';
+            header("refresh: 2; url=area_usuario.php");
         }  else {
             echo "Verifique seus dados e tente novamente ";
-            header("refresh: 3; url=index.html");
+            header("refresh: 2; url=index.html");
         }
     
     }
-//   
-//if (mysql_num_rows($verifica)>0) {
-//    
-//    $recebe = mysql_fetch_assoc($verifica);
-//
-//    //var_dump($recebe);
-//    
-//    echo "Logado";
-//
-//    $_SESSION['email'] = $email;
-//    $_SESSION['cpf'] = $recebe['cpf'];
-//    
-//    header('location: areausuario.html');
-//
-//    }else{
-//
-//            echo "<br>";
-//            echo "erro";
-//            echo "<br>";
-//            echo "Verifique seus dados e tente novamente ";
-//            header("refresh: 5; url=index.html");
-//    }
-//
+
 }
