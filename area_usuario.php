@@ -1,16 +1,23 @@
 <?php
- /**
- * Example Application
 
- * @package Example-application
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
-require '../libs/Smarty.class.php';
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+require_once './asstes/Smarty/libs/Smarty.class.php';
+require_once 'asstes/Smarty/libs/Smarty.class.php';
 
 $smarty = new Smarty;
 
-//$smarty->force_compile = true;
-$smarty->debugging = true;
+
 $smarty->caching = true;
 $smarty->cache_lifetime = 120;
 

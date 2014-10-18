@@ -26,10 +26,9 @@ class DaoAutenticacao extends PDOConnectionFactory {
         $this->conex = PDOConnectionFactory::getConnection();
     }
     public function localizarUser($dadosuser) {
-        var_dump($dadosuser);
         try {
         $sql = "SELECT 
-            COUNT(idAutenticacao)
+            idAutenticacao
         FROM
             tbl_autenticacao AS t1
         WHERE
@@ -45,8 +44,11 @@ class DaoAutenticacao extends PDOConnectionFactory {
        
         } catch (PDOException $e) {
             echo $e->getMessage();
-        }
+           }
         parent::Close();
+    }
+    public function dadosUser($param) {
+        
     }
 
 }
