@@ -12,7 +12,7 @@ background-image:url("../img/grey_@2X.png");
 
 body{
 	margin: 0px;
-	padding: 0px;
+	padding: 10px;
 	background-color: #ccc;
 	font-family: Arial;
 	font-size: 12px;
@@ -73,4 +73,22 @@ nav#menu a:hover{
 
 .clear{
 	clear: both;
+}
+
+.menuLateral{
+    
+    
+}
+.cabecalho{
+    padding: 10px;
+    alignment-adjust: central;
+}
+
+.container{
+    margin-top: 15px;
+}
+.titulo2{
+    text-align: left;
+    text-emphasis: black;
+    font-size: 14px;
 }

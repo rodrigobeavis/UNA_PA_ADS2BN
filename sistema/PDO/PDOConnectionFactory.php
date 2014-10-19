@@ -25,7 +25,6 @@ class  PDOConnectionFactory extends PDO {
 				}
                             $this->con = new PDO($this->dbType.":host=".$cfg['host'].";dbname=".$cfg['dbname'], $cfg['user'], $cfg['password'],
                             array( PDO::ATTR_PERSISTENT => $this->persistent ) );
-                            var_dump($this->con);
                             return $this->con;
                     }catch ( PDOException $ErroMysql ){  echo "Erro: ".$ErroMysql->getMessage(); }
 

@@ -28,17 +28,16 @@ class Autenticar {
              $identifica = $value[0];
          }
          $this->direcionar($identifica);
-         return $identifica;
-         
+         return $identifica;       
     }
     private function direcionar($identifica) {
         
         if($identifica){         
             echo '<script>window.alert("logado");</script>';
-           header("refresh: 1; url=area_usuario.php");
+           header("refresh: 0; url=area_usuario.php");
         }  else {
            echo '<script>window.alert("Verifique seus dados e tente novamente");</script>';
-           header("refresh: 1; url=index.html");
+           echo '<script> history.back();</script>';
         }
     }
 }

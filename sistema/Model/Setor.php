@@ -17,7 +17,9 @@ class Setor {
     private $statusSetor;
     private $comentario;
     private $idEmpresa;
-    
+    private $cargos;
+
+
     public function getId_setor() {
         return $this->id_setor;
     }

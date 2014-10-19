@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-require_once './sistema/Model/autenticar.class.php';
+require_once './sistema/funcoes/Autenticar.class.php';
 require_once './sistema/funcoes/DadosUser.php';
 
 session_start();
@@ -22,18 +22,11 @@ if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
         
        
         $info_user = new DadosUser();
-        $dados_user = $info_user->dadosUserAtual($cod_user);
-       
-        
-        $_SESSION['regra_acesso'] = $user['regra_acesso'];
-        $_SESSION['area_acesso'] = $user['area_acesso'];
-        $_SESSION['id_user'] = $user['id_user'];   
-        
-        
-        
-    }
+        $dados_user = $info_user->dadosUserAtual($cod_user);        
+        $_SESSION = $dados_user;
+     }
 } else {
-    echo "E-Mail is invalid";
+    echo "O email Inválido";
     header("refresh: 3; url=index.html");
 }
 

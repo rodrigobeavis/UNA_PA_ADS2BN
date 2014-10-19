@@ -11,27 +11,32 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-
-require_once './asstes/Smarty/libs/Smarty.class.php';
-require_once 'asstes/Smarty/libs/Smarty.class.php';
+if (file_exists('./asstes/Smarty/libs/Smarty.class.php')) {
+    require_once('./asstes/Smarty/libs/Smarty.class.php');
+} else {
+    require_once('asstes/Smarty/libs/Smarty.class.php');
+}
+if (file_exists('./sistema/classes/AreaUsuario.php')) {
+    require_once('./sistema/classes/AreaUsuario.php');
+} else {
+    require_once('sistema/classes/AreaUsuario.php');
+}
 
 $smarty = new Smarty;
 
 
+$area_usuario = new AreaUsuario();
+$id_user = $_SESSION['id_Colaboradores'];
+
+$info_empresa = $area_usuario->empresaUser($id_user);
+
 $smarty->caching = true;
 $smarty->cache_lifetime = 120;
 
-$smarty->assign("Name","Fred Irving Johnathan Bradley Peppergill",true);
-$smarty->assign("FirstName",array("John","Mary","James","Henry"));
-$smarty->assign("LastName",array("Doe","Smith","Johnson","Case"));
-$smarty->assign("Class",array(array("A","B","C","D"), array("E", "F", "G", "H"),
-      array("I", "J", "K", "L"), array("M", "N", "O", "P")));
 
-$smarty->assign("contacts", array(array("phone" => "1", "fax" => "2", "cell" => "3"),
-      array("phone" => "555-4444", "fax" => "555-3333", "cell" => "760-1234")));
+$smarty->assign('info_empresa',$info_empresa);
 
-$smarty->assign("option_values", array("NY","NE","KS","IA","OK","TX"));
-$smarty->assign("option_output", array("New York","Nebraska","Kansas","Iowa","Oklahoma","Texas"));
-$smarty->assign("option_selected", "NE");
+
+
 
 $smarty->display('area_user.tpl');
