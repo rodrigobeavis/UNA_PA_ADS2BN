@@ -20,7 +20,7 @@ if (file_exists('./sistema/PDO/PDOConnectionFactory.php')) {
 
 class DaoAutenticacao extends PDOConnectionFactory {
     
-    public $conex = null;
+    private $conex = null;
 
     public function DaoAutenticacao() {
         $this->conex = PDOConnectionFactory::getConnection();
@@ -32,7 +32,7 @@ class DaoAutenticacao extends PDOConnectionFactory {
         FROM
             tbl_autenticacao AS t1
         WHERE
-            t1.tipoDeAcesso = 0
+            t1.StatusAcesso = 0
                 AND t1.email = ?
                 AND t1.senha = ?";
         $stmt = $this->conex->prepare($sql);
@@ -47,8 +47,6 @@ class DaoAutenticacao extends PDOConnectionFactory {
            }
         parent::Close();
     }
-    public function dadosUser($param) {
-        
-    }
+  
 
 }

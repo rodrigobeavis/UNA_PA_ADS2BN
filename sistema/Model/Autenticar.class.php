@@ -27,18 +27,18 @@ class Autenticar {
          foreach ($verificar as $value) {
              $identifica = $value[0];
          }
-         $this->direcionar($identifica);  
+         $this->direcionar($identifica);
+         return $identifica;
+         
     }
     private function direcionar($identifica) {
         
-        if($identifica){
-            echo 'Logado';
-            header("refresh: 2; url=area_usuario.php");
+        if($identifica){         
+            echo '<script>window.alert("logado");</script>';
+           header("refresh: 1; url=area_usuario.php");
         }  else {
-            echo "Verifique seus dados e tente novamente ";
-            header("refresh: 2; url=index.html");
+           echo '<script>window.alert("Verifique seus dados e tente novamente");</script>';
+           header("refresh: 1; url=index.html");
         }
-    
     }
-
 }

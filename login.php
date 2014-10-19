@@ -7,6 +7,8 @@
  */
 
 require_once './sistema/Model/autenticar.class.php';
+require_once './sistema/funcoes/DadosUser.php';
+
 session_start();
 
 if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
@@ -16,12 +18,25 @@ if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
         $dadosuser = array('email' => $email, 'keyU' => $keyU);
 
         $verificar = new Autenticar();
-        $verificar->logar($dadosuser);
+        $cod_user = $verificar->logar($dadosuser);
+        
+       
+        $info_user = new DadosUser();
+        $dados_user = $info_user->dadosUserAtual($cod_user);
+       
+        
+        $_SESSION['regra_acesso'] = $user['regra_acesso'];
+        $_SESSION['area_acesso'] = $user['area_acesso'];
+        $_SESSION['id_user'] = $user['id_user'];   
+        
+        
+        
     }
 } else {
     echo "E-Mail is invalid";
     header("refresh: 3; url=index.html");
 }
+
 
 
 
