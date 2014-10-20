@@ -11,5 +11,4 @@
         <script src="./asstes/js/jquery-2.1.1.min.js"></script>
         <script src="./asstes/bootstrap/js/bootstrap.js"></script>
         <script src="./asstes/jquery-ui/jquery-ui.min.js"></script>
-</head>
-<body>
+

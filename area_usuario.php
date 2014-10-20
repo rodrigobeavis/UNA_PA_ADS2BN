@@ -24,7 +24,7 @@ if (file_exists('./sistema/classes/AreaUsuario.php')) {
 
 $smarty = new Smarty;
 
-
+var_dump($_SESSION);
 $area_usuario = new AreaUsuario();
 $id_user = $_SESSION['id_Colaboradores'];
 
