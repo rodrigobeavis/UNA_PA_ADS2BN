@@ -17,7 +17,7 @@ if (file_exists('./sistema/PDO/PDOConnectionFactory.php')) {
     require_once('../PDO/PDOConnectionFactory.php');
 }
 class DAOEmpresa extends PDOConnectionFactory{
-      private $conex = null;
+    private $conex = null;
 
     public function DAOEmpresa() {
         $this->conex = PDOConnectionFactory::getConnection();

@@ -6,8 +6,6 @@ background-image:url("../img/grey_@2X.png");
 .headerindex{
     font-size: 25px;
     text-align: center;
-
-    
 }
 
 body{
@@ -91,4 +89,10 @@ nav#menu a:hover{
     text-align: left;
     text-emphasis: black;
     font-size: 14px;
+}
+.titulo3{
+    text-align: left;
+    text-emphasis: black;
+    font-size: 14px;
+    font-weight: bold;
 }

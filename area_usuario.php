@@ -24,11 +24,12 @@ if (file_exists('./sistema/classes/AreaUsuario.php')) {
 
 $smarty = new Smarty;
 
-var_dump($_SESSION);
+
 $area_usuario = new AreaUsuario();
 $id_user = $_SESSION['id_Colaboradores'];
 
 $info_empresa = $area_usuario->empresaUser($id_user);
+$info_servicos = 
 
 $smarty->caching = true;
 $smarty->cache_lifetime = 120;
