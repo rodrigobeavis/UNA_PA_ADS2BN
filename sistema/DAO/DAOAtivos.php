@@ -11,6 +11,13 @@
  *
  * @author RODRIGO
  */
-class DAOAtivos {
-    //put your code here
+
+if (file_exists('./sistema/PDO/PDOConnectionFactory.php')) {
+    require_once('./sistema/PDO/PDOConnectionFactory.php');
+} else {
+    require_once('../PDO/PDOConnectionFactory.php');
+}
+class DAOAtivos extends PDOConnectionFactory {
+    
+    
 }

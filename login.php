@@ -19,12 +19,15 @@ if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
 
         $verificar = new Autenticar();
         $cod_user = $verificar->logar($dadosuser);
-        
-       
-        $info_user = new DadosUser();
-        $dados_user = $info_user->dadosUserAtual($cod_user);        
-        $_SESSION = $dados_user;
-     }
+
+        if ($cod_user) {
+            $info_user = new DadosUser();
+            $dados_user = $info_user->dadosUserAtual($cod_user);
+
+            $_SESSION = $dados_user;
+            $_SESSION['ID'] = md5(rand(1, 99999999999));
+        }
+    }
 } else {
     echo "O email Inválido";
     header("refresh: 3; url=index.html");
