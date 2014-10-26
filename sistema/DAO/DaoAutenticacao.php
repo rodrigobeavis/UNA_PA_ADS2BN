@@ -33,8 +33,8 @@ class DaoAutenticacao extends PDOConnectionFactory {
             tbl_autenticacao AS t1
         WHERE
             t1.StatusAcesso = 0
-                AND t1.email = ?
-                AND t1.senha = ?";
+            AND t1.email = ?
+            AND t1.senha = ?";
         $stmt = $this->conex->prepare($sql);
         $stmt->bindValue(1, $dadosuser['email']);
         $stmt->bindValue(2, $dadosuser['keyU']);

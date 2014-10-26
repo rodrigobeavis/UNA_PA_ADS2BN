@@ -23,16 +23,10 @@ if (file_exists('./sistema/DAO/DAOServicos.php')) {
     require_once('../DAO/DAOServicos.php');
 }
 
-//if (file_exists('./sistema/Model/Empresa.php')) {
-//    require_once('./sistema/Model/Empresa.php');
-//} else {
-//    require_once('../Model/Empresa.php');
-//}
 class AreaUsuario {
 
-    private $DAOe;
+    private $DAOe;    
     private $DAOs;
-
     public function AreaUsuario() {
         $this->DAOe = new DAOEmpresa();
         $this->DAOs = new DAOServicos();
@@ -41,6 +35,7 @@ class AreaUsuario {
     public function empresaUser($id_user) {
 
         $empresa = $this->DAOe->dadosEmpresa($id_user);
+
         foreach ($empresa as $row) {
             $info_empresa['idEmpresa'] = $row['idEmpresa'];
             $info_empresa['CNPJ'] = $row['CNPJ'];
@@ -51,27 +46,37 @@ class AreaUsuario {
             $info_empresa['Nome'] = $row['Nome'];
         }
         return $info_empresa;
-    }
-
-    public function UserServicos($tipo) {
-
-        $result = $this->DAOs->consultarServicos($tipo);
-
-        foreach ($result as $row) {
-            $info_servico['id_servico'] = $row['id_servico'];
-            $info_servico['tipo'] = $row['tipo'];
-            $info_servico['solicitacao'] = $row['solicitacao'];
-            $info_servico['dataHoraInicial'] =  date_format($row['dataHoraInicial'],"d/m/Y H:i:s");
-            $info_servico['dataHoraFinal'] = ($row['dataHoraFinal'])? date_format($row['dataHoraFinal'],"d/m/Y H:i:s") : "Em aberto";
-            $info_servico['idAtivos'] = $row['idAtivos'];
-            $info_servico['prestador'] = $row['prestador'];
+    }    
+    public function Servicos($tipo) {
+        
+    $Lista = $this->DAOs->consultarServicos();
+    $i = 0;
+    foreach ($Lista as $row) {
+        
+        if ($row['tipo'] == $tipo) {
+       
+        $info_serv[$i]['id_servico'] = $row['id_servico'];
+        $info_serv[$i]['tipo'] = $row['tipo'];
+        $info_serv[$i]['solicitacao'] = $row['solicitacao'];
+        $info_serv[$i]['dataHoraInicial'] = $row['dataHoraInicial'];
+        $info_serv[$i]['dataHoraFinal'] = $row['dataHoraFinal'];
+        $info_serv[$i]['idAtivos'] = $row['idAtivos'];
+        $info_serv[$i]['solicitante'] = $row['solicitante'];
+        $info_serv[$i]['prestador'] = $row['prestador'];
+        $info_serv[$i]['status'] = $row['status'];
+        
         }
-        return $info_servico;
+        $i++;
     }
+    
+    sort($info_serv);
+    return $info_serv;
+    }
+    
+//            $info_servico[$i]['dataHoraInicial'] = date_format($row['dataHoraInicial'], "d/m/Y H:i:s");
+//            $info_servico[$i]['dataHoraFinal'] = (!isset($row['dataHoraFinal'])) ? "Em aberto" : date_format($row['dataHoraFinal'], "d/m/Y H:i:s");
 
-    
-    
-    
+
 //    public function empresaUser($cod_empresa) {
 //        
 //         $empresa = $this->DAO->dadosEmpresa($cod_empresa);

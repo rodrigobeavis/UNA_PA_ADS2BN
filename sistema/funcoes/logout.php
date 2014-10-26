@@ -15,7 +15,7 @@
 session_start();
 session_unset();
 session_destroy();
-unset($_SESSION['ID']);
+unset($_SESSION);
 
 if (empty($_SESSION)) {
     if (file_exists('../../index.html')) {

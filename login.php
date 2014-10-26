@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 
+
 require_once './sistema/funcoes/Autenticar.class.php';
 require_once './sistema/funcoes/DadosUser.php';
 
@@ -13,7 +14,7 @@ session_start();
 
 if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $keyU = filter_input(INPUT_POST, 'senha');
+    $keyU = md5(filter_input(INPUT_POST, 'senha'));
     if ($email && $keyU) {
         $dadosuser = array('email' => $email, 'keyU' => $keyU);
 
@@ -25,7 +26,9 @@ if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
             $dados_user = $info_user->dadosUserAtual($cod_user);
 
             $_SESSION = $dados_user;
-            $_SESSION['ID'] = md5(rand(1, 99999999999));
+            
+            $_SESSION['ID'] = md5(rand(1, 99999999999).date("YmdHis"));
+            $_SESSION['ID2'] = session_id();
         }
     }
 } else {

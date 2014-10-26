@@ -41,8 +41,7 @@ class DAOEmpresa extends PDOConnectionFactory{
                         t1.statusEmpresa = 0 and
                         t2.StatusSetor = 0 and
                         t3.statusCargo = 0 and
-                        t4.idColaboradores = ?";
-            
+                        t4.idColaboradores = ?";            
             $stmt = $this->conex->prepare($sql);
             $stmt->bindValue(1, $id_user);
             $stmt->execute();
@@ -52,4 +51,5 @@ class DAOEmpresa extends PDOConnectionFactory{
         }
         parent::Close();
     }
+   
 }

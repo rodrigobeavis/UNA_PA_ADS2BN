@@ -8,9 +8,16 @@
 
 /**
  * Description of Requisicoes
- *
  * @author RODRIGO
  */
+
 class Requisicoes {
-    //put your code here
+    private $DAO;    
+
+    public function Requisicoes() {
+        
+    }
+   
+    
+    
 }

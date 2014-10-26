@@ -19,10 +19,10 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     } else {
         require_once('asstes/Smarty/libs/Smarty.class.php');
     }
-    if (file_exists('./sistema/classes/AreaUsuario.php')) {
-        require_once('./sistema/classes/AreaUsuario.php');
+    if (file_exists('./sistema/classes/User.php')) {
+        require_once('./sistema/classes/User.php');
     } else {
-        require_once('sistema/classes/AreaUsuario.php');
+        require_once('sistema/classes/User.php');
     }
 
     $smarty = new Smarty;
@@ -31,14 +31,13 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $id_user = $_SESSION['id_Colaboradores'];
    
     $info_empresa = $area_usuario->empresaUser($id_user); 
-
- 
     
-    $info_incidentes = $area_usuario->Servicos(1);
+    $inc = 1;
+    $info_incidentes = $area_usuario->userServicos($inc);
     var_dump($info_incidentes);
-    
-     $info_requisicoes = $area_usuario->Servicos(2);
-    var_dump($info_requisicoes);
+//    $req = 2;
+//    $info_requisicoes = $area_usuario->UserServicos($req);
+//    var_dump($info_requisicoes);
 
 
     $smarty->caching = true;

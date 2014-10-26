@@ -6,7 +6,6 @@
  * and open the template in the editor.
  */
 
-
 if (file_exists('./sistema/DAO/DaoAutenticacao.php')) {
     require_once('./sistema/DAO/DaoAutenticacao.php');
 } else {
