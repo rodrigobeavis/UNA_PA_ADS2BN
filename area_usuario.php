@@ -35,16 +35,17 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
  
     
     $info_incidentes = $area_usuario->Servicos(1);
-    var_dump($info_incidentes);
+
     
-     $info_requisicoes = $area_usuario->Servicos(2);
-    var_dump($info_requisicoes);
+    $info_requisicoes = $area_usuario->Servicos(2);
+  
 
 
     $smarty->caching = true;
     $smarty->cache_lifetime = 120;
 
-
+    $smarty->assign('info_incidentes', $info_incidentes);
+    $smarty->assign('info_requisicoes', $info_requisicoes);
     $smarty->assign('info_empresa', $info_empresa);
 
 //    $smarty->assign('info_incidentes', $info_incidentes);

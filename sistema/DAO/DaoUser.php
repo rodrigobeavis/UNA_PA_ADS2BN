@@ -24,7 +24,6 @@ class DaoUser extends PDOConnectionFactory {
                         idAutenticacao,
                         nome,
                         login,
-                        senha,
                         tipoDeAcesso,
                         regraAcesso,
                         areaAcesso,
@@ -34,6 +33,24 @@ class DaoUser extends PDOConnectionFactory {
                     WHERE
                         t1.StatusAcesso = 0 and
                         t1.idAutenticacao = ?";
+            $stmt = $this->conex->prepare($sql);
+            $stmt->bindValue(1, $cod_autenticacao);
+            $stmt->execute();
+            return $stmt;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        parent::Close();
+    }
+    public function nomeUser($cod_autenticacao) {
+        try {
+            $sql = "SELECT 
+                        nome
+                    FROM
+                        tbl_autenticacao AS t1
+                    WHERE
+                        t1.StatusAcesso = 0
+                            AND t1.id_Colaboradores = 2";
             $stmt = $this->conex->prepare($sql);
             $stmt->bindValue(1, $cod_autenticacao);
             $stmt->execute();

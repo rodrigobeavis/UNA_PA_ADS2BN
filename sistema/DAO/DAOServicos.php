@@ -20,6 +20,8 @@ class DAOServicos extends PDOConnectionFactory{
             $sql = "SELECT 
                         t1.id_servico,
                         t1.tipo,
+                        t1.titulo,
+                        t1.data_estimada,
                         t1.solicitacao,
                         t1.dataHoraInicial,
                         t1.dataHoraFinal,
