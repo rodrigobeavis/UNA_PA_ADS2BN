@@ -15,7 +15,7 @@ class  PDOConnectionFactory extends PDO {
     }
 
     public function getConnection(){
-                    try{
+                    try{                       
                         if(file_exists("./sistema/configs/config.ini")){
                             $cfg = parse_ini_file("./sistema/configs/config.ini");
                         } elseif(file_exists("sistema/configs/config.ini")) {

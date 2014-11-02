@@ -42,7 +42,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
 
     $info_empresa = $area_usuario->empresaUser($id_user);
 
-    $page = "Cadastro de Empresa";
+    $page = "Relatório Requisição";
 
     $smarty->caching = true;
     $smarty->cache_lifetime = 120;
@@ -51,7 +51,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $smarty->assign('info_empresa', $info_empresa);
     $smarty->assign('page', $page);
 
-    $smarty->display('cadastro_empresa.tpl');
+    $smarty->display('relatorio_requisicao.tpl');
 } else {
     echo '<script>window.alert("Acesso não autorizado");</script>';
     echo '<script> history.back();</script>';

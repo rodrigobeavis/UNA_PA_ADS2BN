@@ -51,5 +51,46 @@ class DAOEmpresa extends PDOConnectionFactory{
         }
         parent::Close();
     }
-   
+   public function InserirEmpresa($dados) {
+        try {
+            $sql = "INSERT INTO tbl_empresa 
+                        (CNPJ ,
+                         RazaoSocial ,
+                         InscricaoMunicipal)
+                        VALUES(?,?,?,?)";            
+            $stmt = $this->conex->prepare($sql);
+            $stmt->bindValue(1, $dados['CNPJ']);
+            $stmt->bindValue(2, $dados['RazaoSocial']);
+            $stmt->bindValue(3, $dados['InscricaoMunicipal']);
+            
+            $stmt->execute();
+            return $stmt;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        parent::Close();
+    }
+     public function AtualizarEmpresa($dados) {
+        try {
+            $sql = "UPDATE tbl_empresa 
+                    SET
+                        CNPJ  = ?,
+                        RazaoSocial  = ?,
+                        InscricaoMunicipal  = ?,
+                    WHERE idEmpresa = ?";            
+            $stmt = $this->conex->prepare($sql);
+            $stmt->bindValue(1, $dados['CNPJ']);
+            $stmt->bindValue(2, $dados['RazaoSocial']);
+            $stmt->bindValue(3, $dados['InscricaoMunicipal']);
+            $stmt->bindValue(4, $dados['idEmpresa']);
+            $stmt->execute();
+            return $stmt;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        parent::Close();
+    }
+    
+    
+    
 }

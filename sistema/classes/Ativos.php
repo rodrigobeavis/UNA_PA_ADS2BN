@@ -19,15 +19,30 @@ if (file_exists('./sistema/DAO/DAOAtivos.php')) {
 
 class Ativos {
 
-    private $DAOa;
+    private $DAO;
 
     public function Ativos() {
 
-        $this->DAOs = new DAOAtivos();
+        $this->DAO = new DAOAtivos();
     }
 
     public function listarAtivos() {
+       
+        $lista = $this->DAO->consultarAtivos();
         
+        $i=0;
+         foreach ($lista as $row) {
+                $infoAtivo[$i]['idAtivos'] = $row['idAtivos'];
+                $infoAtivo[$i]['patrimonio'] = $row['patrimonio'];
+                $infoAtivo[$i]['modelo'] = $row['modelo'];
+                $infoAtivo[$i]['tipo'] = $row['tipo'];
+                $infoAtivo[$i]['idEmpresa'] = $row['idEmpresa'];
+                $infoAtivo[$i]['status_ativos'] = $row['status_ativos'];
+            
+             $i++;   
+         }
+        
+         return $infoAtivo;
     }
 
     public function inserirAtivos($param) {
@@ -36,6 +51,23 @@ class Ativos {
 
     public function updateAtivos($param) {
         
+    }
+
+    public function identificarAtivos($id) {
+        if ($id) {
+
+            $ativo = $this->DAO->identificarAtivo($id);
+
+            foreach ($ativo as $row) {
+
+                $infoAtivo['patrimonio'] = $row['patrimonio'];
+                $infoAtivo['modelo'] = $row['modelo'];
+                $infoAtivo['tipo'] = $row['tipo'];
+                $infoAtivo['idEmpresa'] = $row['idEmpresa'];
+                $infoAtivo['status_ativos'] = $row['status_ativos'];
+            }
+            return $infoAtivo;
+        }
     }
 
 }

@@ -50,7 +50,7 @@ class DaoUser extends PDOConnectionFactory {
                         tbl_autenticacao AS t1
                     WHERE
                         t1.StatusAcesso = 0
-                            AND t1.id_Colaboradores = 2";
+                            AND t1.id_Colaboradores = ?";
             $stmt = $this->conex->prepare($sql);
             $stmt->bindValue(1, $cod_autenticacao);
             $stmt->execute();

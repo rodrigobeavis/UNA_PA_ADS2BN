@@ -33,7 +33,6 @@ class DadosUser {
             $User['idAutenticacao'] = $coluna['idAutenticacao'];
             $User['nome'] = $coluna['nome'];
             $User['login'] = $coluna['login'];
-            $User['senha'] = $coluna['senha'];
             $User['tipoDeAcesso'] = $coluna['tipoDeAcesso'];
             $User['regraAcesso'] = $coluna['regraAcesso'];
             $User['areaAcesso'] = $coluna['areaAcesso'];

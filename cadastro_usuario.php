@@ -12,12 +12,9 @@ if (!isset($_SESSION)) {
 }
 if ($_SESSION['ID'] && $_SESSION['ID2']) {
     if (!isset($_REQUEST)) {
-        $dados = $_REQUEST;
-    }
+    $dados = $_REQUEST;}
 
-    var_dump($_REQUEST);
-
-
+var_dump($_REQUEST);
     if (file_exists('./asstes/Smarty/libs/Smarty.class.php')) {
         require_once('./asstes/Smarty/libs/Smarty.class.php');
     } else {
@@ -28,22 +25,22 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     } else {
         require_once('sistema/classes/Empresa.php');
     }
-    if (file_exists('./sistema/classes/AreaUsuario.php')) {
+     if (file_exists('./sistema/classes/AreaUsuario.php')) {
         require_once('./sistema/classes/AreaUsuario.php');
     } else {
         require_once('sistema/classes/AreaUsuario.php');
     }
-
+    
     $smarty = new Smarty;
-    $empresa = new Empresa();
+    $empresa = new Empresa();    
     $area_usuario = new AreaUsuario();
-
+    
     $id_user = $_SESSION['id_Colaboradores'];
-
-    $info_empresa = $area_usuario->empresaUser($id_user);
-
-    $page = "Cadastro de Empresa";
-
+   
+    $info_empresa = $area_usuario->empresaUser($id_user); 
+    
+    $page = "Cadastro de Usu&aacute;rio";
+    
     $smarty->caching = true;
     $smarty->cache_lifetime = 120;
 
@@ -51,7 +48,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $smarty->assign('info_empresa', $info_empresa);
     $smarty->assign('page', $page);
 
-    $smarty->display('cadastro_empresa.tpl');
+    $smarty->display('cadastro_usuario.tpl');
 } else {
     echo '<script>window.alert("Acesso não autorizado");</script>';
     echo '<script> history.back();</script>';

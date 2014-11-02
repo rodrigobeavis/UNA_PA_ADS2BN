@@ -51,7 +51,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $smarty->assign('info_empresa', $info_empresa);
     $smarty->assign('page', $page);
 
-    $smarty->display('cadastro_empresa.tpl');
+    $smarty->display('abertura_OS.tpl');
 } else {
     echo '<script>window.alert("Acesso não autorizado");</script>';
     echo '<script> history.back();</script>';

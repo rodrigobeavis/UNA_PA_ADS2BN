@@ -27,6 +27,11 @@ if (file_exists('./sistema/Classes/User.php')) {
 } else {
     require_once('./User.php');
 }
+if (file_exists('./sistema/Classes/Ativos.php')) {
+    require_once('./sistema/Classes/Ativos.php');
+} else {
+    require_once('./Ativos.php');
+}
 class AreaUsuario {
 
     private $DAOe;    
@@ -36,6 +41,7 @@ class AreaUsuario {
         $this->DAOe = new DAOEmpresa();
         $this->DAOs = new DAOServicos();
         $this->USER = new User();
+        $this->ATIVOS = new Ativos();
         }
 
     public function empresaUser($id_user) {
@@ -54,7 +60,7 @@ class AreaUsuario {
         return $info_empresa;
     }    
     public function Servicos($tipo) {
-        
+   
     $Lista = $this->DAOs->consultarServicos();
     $i = 0;
     foreach ($Lista as $row) {
@@ -68,16 +74,28 @@ class AreaUsuario {
         $info_serv[$i]['data_estimada'] = $row['data_estimada'];
         $info_serv[$i]['dataHoraFinal'] = $row['dataHoraFinal'];
         $info_serv[$i]['idAtivos'] = $row['idAtivos'];
+        $info_serv[$i]['infoAtivo'] = $this->ATIVOS->identificarAtivos($row['idAtivos']);
         $info_serv[$i]['solicitante'] = $this->USER->exibirNome($row['solicitante']);
-        $info_serv[$i]['prestador'] = $row['prestador'];
-        $info_serv[$i]['status'] = ($row['status'] == 0)? "Ativo" :"Inativo";        
+        $info_serv[$i]['prestador'] = $this->USER->exibirNome($row['prestador']);
+        $info_serv[$i]['status'] = ($row['status'] == 0)? "Ativo" :"Inativo";      
         }
         $i++;
+      
     }
-     
-     sort($info_serv);
+    
+      
+    
+    sort($info_serv);
     return $info_serv;
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
 //            $info_servico[$i]['dataHoraInicial'] = date_format($row['dataHoraInicial'], "d/m/Y H:i:s");
 //            $info_servico[$i]['dataHoraFinal'] = (!isset($row['dataHoraFinal'])) ? "Em aberto" : date_format($row['dataHoraFinal'], "d/m/Y H:i:s");

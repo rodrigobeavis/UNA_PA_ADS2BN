@@ -11,21 +11,25 @@
  *
  * @author RODRIGO
  */
-if (file_exists('./sistema/DAO/DAOAtivos.php')) {
-    require_once('./sistema/DAO/DAOAtivos.php');
+if (file_exists('./sistema/DAO/DAOEmpresa.php')) {
+    require_once('./sistema/DAO/DAOEmpresa.php');
 } else {
-    require_once('../DAO/DAOAtivos.php');
+    require_once('../DAO/DAOEmpresa.php');
 }
+
 class Empresa {
- 
-    private $DAOa;
+
+    private $DAOe;
 
     public function Ativos() {
 
-        $this->DAOa = new DAOAtivos();
+        $this->DAOe = new DAOEmpresa();
     }
 
-    public function listarAtivos() {
+    public function inserirEmpresa() {
+        
+        
+        
         
     }
 
