@@ -37,8 +37,7 @@ class Ativos {
                 $infoAtivo[$i]['modelo'] = $row['modelo'];
                 $infoAtivo[$i]['tipo'] = $row['tipo'];
                 $infoAtivo[$i]['idEmpresa'] = $row['idEmpresa'];
-                $infoAtivo[$i]['status_ativos'] = $row['status_ativos'];
-            
+                $infoAtivo[$i]['status_ativos'] = $row['status_ativos'];            
              $i++;   
          }
         
@@ -46,6 +45,7 @@ class Ativos {
     }
 
     public function inserirAtivos($param) {
+        
         
     }
 

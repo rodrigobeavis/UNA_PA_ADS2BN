@@ -28,17 +28,42 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     } else {
         require_once('sistema/classes/Ativos.php');
     }
+    if (file_exists('./sistema/classes/Servicos.php')) {
+        require_once('./sistema/classes/Servicos.php');
+    } else {
+        require_once('sistema/classes/Servicos.php');
+    }
     
     if(isset($_REQUEST)){
         $dados = $_REQUEST;
     }
     
+    
+    
+    
     var_dump($dados);
+    
+    
+    
+    
     
     $smarty = new Smarty;    
     $area_usuario = new AreaUsuario();
     $ativos = new Ativos();
+    $servico = new Servicos();
     $id_user = $_SESSION['id_Colaboradores'];
+    
+    
+    if (isset($dados['titulo'])) {
+        
+        $dados_OS = array('tipo'=>$dados['tipo'],'ativos'=>$dados['ativos'],'titulo'=>$dados['titulo'],'descricao'=>$dados['descricao'],'id_user'=>$id_user);
+        
+        var_dump($dados_OS);
+        //$OS = $servico->inserirServicos($dados_OS);        
+        header("Refresh:0");
+        unset($_REQUEST,$dados,$dados_OS);
+    }
+    
     
     
    
@@ -47,7 +72,6 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $info_requisicoes = $area_usuario->Servicos(2,$id_user);
     
     $info_ativos = $ativos->listarAtivos();
-    var_dump($info_ativos);
   
 
     $smarty->caching = true;

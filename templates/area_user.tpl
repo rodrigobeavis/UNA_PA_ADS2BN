@@ -54,18 +54,35 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <form action="#" method="POST">
-                                            <label></label>
-                                            <label>Ativo</label><br>
-                                            <select id="ativos" name="ativos" required>
+                                            <div class="col-md-4">
+                                            <label>Tipo</label>
+                                            <select id="tipo" name="tipo" class="form-control" required>
+                                                <option></option>
+                                                <option value="1">Incidentes</option>
+                                                <option value="2">Requisições</option>
+                                            </select><br>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <label>Ativo</label>
+                                            <select id="ativos" name="ativos" class="form-control" required>
                                                  <option></option>
                                                 {section name=at loop=$info_ativos}
                                                     <option value="{$info_ativos[at].idAtivos}">{$info_ativos[at].idAtivos} - {$info_ativos[at].tipo} - {$info_ativos[at].modelo} - {$info_ativos[at].patrimonio}  </option>
                                                 {/section}
-                                            </select><br>                                            
+                                            </select><br>
+                                            </div>
+                                            <div class="col-md-4">
+                                             <label>Título</label>
+                                             <input name="titulo" id="titulo" class="form-control" type="text" size="20" maxlength="45" required>
+                                            <br>
+                                            </div>
+                                            <div class="col-md-12">
                                             <label>Descrição</label><br>
                                             <textarea id="descricao" name="descricao" class="form-control" rows="3" required></textarea>
-                                            <div class="row"><br>
-                                                <div class="col-md-4">
+                                            </div><br>
+                                            <div class="col-md-4">
+                                                <label></label>
+                                                <div class="">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                                 <button type="submit" class="btn btn-primary">Registrar</button>
                                                 </div>
@@ -76,10 +93,8 @@
                             </div>                            
                         </div>
                     </div>
-                </div>                
-                </form>
+                </div>       
             </div>
-
         </div>
         <div class="row">
             <div><div id="menu" >{include file="menu.tpl" }</div></div>
