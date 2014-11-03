@@ -33,22 +33,30 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     } else {
         require_once('sistema/classes/AreaUsuario.php');
     }
+     if (file_exists('./sistema/classes/Requisicoes.php')) {
+        require_once('./sistema/classes/Requisicoes.php');
+    } else {
+        require_once('sistema/classes/Requisicoes.php');
+    }
 
     $smarty = new Smarty;
     $empresa = new Empresa();
     $area_usuario = new AreaUsuario();
+    $requisicoes = new Requisicoes();
 
     $id_user = $_SESSION['id_Colaboradores'];
-
+    
+    $info_requisicoes = $requisicoes->relatorioRequisicao();
     $info_empresa = $area_usuario->empresaUser($id_user);
 
-    $page = "Relatório Requisição";
+    $page = "Relatório Requisições";
 
     $smarty->caching = true;
     $smarty->cache_lifetime = 120;
 
 
-    $smarty->assign('info_empresa', $info_empresa);
+    $smarty->assign('info_requisicoes', $info_requisicoes);
+     $smarty->assign('info_empresa', $info_empresa);
     $smarty->assign('page', $page);
 
     $smarty->display('relatorio_requisicao.tpl');

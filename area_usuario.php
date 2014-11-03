@@ -42,16 +42,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     if(isset($_REQUEST)){
         $dados = $_REQUEST;
     }
-    
-    
-    
-    
-    var_dump($dados);
-    
-    
-    
-    
-    
+     
     $smarty = new Smarty;    
     $area_usuario = new AreaUsuario();
     $ativos = new Ativos();
@@ -71,8 +62,6 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
         header("Refresh:0"); 
     }
         
-    
-   
     $info_tec = $USER->listarTecnicos();
     $info_empresa = $area_usuario->empresaUser($id_user);
     $info_incidentes = $area_usuario->Servicos(1,$id_user);    

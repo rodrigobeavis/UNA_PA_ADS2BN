@@ -15,7 +15,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                       <th>Id</th>
+                                        <th>Id</th>
                                         <th>Nome</th>
                                     </tr>
                                 </thead>
@@ -35,25 +35,39 @@
             </div>   
         </div>
         <div class="row">
-            <div><div id="menu" >{include file="menu.tpl" }</div></div>
-            </div>
-            <div class="col-md-10">
-                <header></header>
-                <article>
-                    <div class="panel panel-default">
-                        <div class="panel-heading titulo3"></div>
-                        <div class="panel-body">
-                            <div class="datagrid">
-                                <table boder="0">                      
-                                    <!--<tfoot><tr><td colspan="4"><div id="paging"><ul><li><a href="#"><span>Previous</span></a></li><li><a href="#" class="active"><span>1</span></a></li><li><a href="#"><span>2</span></a></li><li><a href="#"><span>3</span></a></li><li><a href="#"><span>4</span></a></li><li><a href="#"><span>5</span></a></li><li><a href="#"><span>Next</span></a></li></ul></div></tr></tfoot> -->
-                                    <tbody>
-                                        <tr><td></td></tr>                                    
-                                    </tbody>
-                                </table>
-                            </div>                            
+            <div><div id="menu" >{include file="menu.tpl"}</div></div>
+        </div>
+        <div class="col-md-10">
+            <header></header>
+            <article>
+                <div class="panel panel-default">
+                    <div class="panel-heading titulo3"></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="datagrid">
+                                    <table boder="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Modelo</th><th>Patrimônio</th><th>Total de Requisições</th>
+                                            </tr>
+                                        </thead>
+                                        <!--<tfoot><tr><td colspan="4"><div id="paging"><ul><li><a href="#"><span>Previous</span></a></li><li><a href="#" class="active"><span>1</span></a></li><li><a href="#"><span>2</span></a></li><li><a href="#"><span>3</span></a></li><li><a href="#"><span>4</span></a></li><li><a href="#"><span>5</span></a></li><li><a href="#"><span>Next</span></a></li></ul></div></tr></tfoot> -->
+                                        <tbody>
+                                            {section name=req loop=$info_requisicoes}
+                                                <tr><td>{$info_requisicoes[req].modelo}</td><td>{$info_requisicoes[req].patrimonio}</td><td>{$info_requisicoes[req].quantOS}</td></tr>
+                                            {/section}
+                                        </tbody>
+                                    </table>
+                                </div>         
+
+                            </div>
+
                         </div>
-                    </div>                  
-                </article>                
-            </div>{include file="footer.tpl"}
-        </div>    
-        
+
+                    </div>
+                </div>                  
+            </article>                
+        </div>{include file="footer.tpl"}
+    </div>    
+

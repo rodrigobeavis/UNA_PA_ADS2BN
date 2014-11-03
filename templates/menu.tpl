@@ -3,8 +3,8 @@
                     <h3><header class="label label-default">Menu</header></h3>
                     <div class="btn-group-vertical">
                         <button type="button" class="btn btn-default" onclick="javascript:location.href=('./area_usuario.php');">Home</button>
-                        <button type="button" class="btn btn-default" onclick="javascript:location.href=('./abertura_incidentes.php');">Incidente</button>
-                        <button type="button" class="btn btn-default" onclick="javascript:location.href=('./abertura_requisicao.php');">Requisi&ccedil;&otilde;es</button>
+                        <button type="button" class="btn btn-default" onclick="javascript:location.href=('./relatorio_incidentes.php');">Incidente</button>
+                        <button type="button" class="btn btn-default" onclick="javascript:location.href=('./relatorio_requisicao.php');">Requisi&ccedil;&otilde;es</button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Cadastros
                             <span class="caret"></span>
