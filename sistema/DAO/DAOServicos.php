@@ -40,6 +40,34 @@ class DAOServicos extends PDOConnectionFactory{
         }
         parent::Close();
     }
-    
+    public function inserirServicos($dados_OS) {
+        var_dump($dados_OS);
+        try {
+            $sql = "INSERT INTO tbl_servicos
+                        (tipo,
+                        titulo,
+                        solicitacao,
+                        dataHoraInicial,
+                        idAtivos,
+                        solicitante,
+                        prestador)
+                        VALUES
+                        (?,?,?,now(),?,?,?)";            
+            
+            $stmt = $this->conex->prepare($sql);
+            $stmt->bindValue(1, $dados_OS['tipo']);
+            $stmt->bindValue(2, $dados_OS['titulo']);
+            $stmt->bindValue(3, $dados_OS['descricao']);
+            $stmt->bindValue(4, $dados_OS['ativos']);
+            $stmt->bindValue(5, $dados_OS['solicitante']);
+            $stmt->bindValue(6, $dados_OS['prestador']);           
+            
+            $stmt->execute();
+            return $stmt;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        parent::Close();
+    }
     
 }

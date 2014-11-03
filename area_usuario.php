@@ -33,6 +33,11 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     } else {
         require_once('sistema/classes/Servicos.php');
     }
+     if (file_exists('./sistema/classes/User.php')) {
+        require_once('./sistema/classes/User.php');
+    } else {
+        require_once('sistema/classes/User.php');
+    }
     
     if(isset($_REQUEST)){
         $dados = $_REQUEST;
@@ -51,22 +56,24 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $area_usuario = new AreaUsuario();
     $ativos = new Ativos();
     $servico = new Servicos();
+    $USER = new User();
     $id_user = $_SESSION['id_Colaboradores'];
     
     
     if (isset($dados['titulo'])) {
         
-        $dados_OS = array('tipo'=>$dados['tipo'],'ativos'=>$dados['ativos'],'titulo'=>$dados['titulo'],'descricao'=>$dados['descricao'],'id_user'=>$id_user);
+        $dados_OS = array('tipo'=>$dados['tipo'],'ativos'=>$dados['ativos'],'titulo'=>$dados['titulo'],'descricao'=>$dados['descricao'],'solicitante'=>$id_user,'prestador'=>$dados['prestador']);
+       
+        $OS = $servico->inserirServicos($dados_OS);                
         
-        var_dump($dados_OS);
-        //$OS = $servico->inserirServicos($dados_OS);        
-        header("Refresh:0");
+        header("Refresh:0"); 
         unset($_REQUEST,$dados,$dados_OS);
+        header("Refresh:0"); 
     }
-    
-    
+        
     
    
+    $info_tec = $USER->listarTecnicos();
     $info_empresa = $area_usuario->empresaUser($id_user);
     $info_incidentes = $area_usuario->Servicos(1,$id_user);    
     $info_requisicoes = $area_usuario->Servicos(2,$id_user);
@@ -81,6 +88,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $smarty->assign('info_requisicoes', $info_requisicoes);
     $smarty->assign('info_empresa', $info_empresa);
     $smarty->assign('info_ativos', $info_ativos);
+    $smarty->assign('info_tec', $info_tec);
 
     $smarty->display('area_user.tpl');
     

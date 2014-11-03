@@ -72,6 +72,15 @@
                                             </select><br>
                                             </div>
                                             <div class="col-md-4">
+                                            <label>Prestador</label>
+                                            <select id="prestador" name="prestador" class="form-control" required>
+                                                 <option></option>
+                                                {section name=tec loop=$info_tec}
+                                                    <option value="{$info_tec[tec].idColaboradores}"  data-toggle="tooltip" data-placement="right" title="{$info_tec[tec].nomeSetor}">{$info_tec[tec].nome} - {$info_tec[tec].Cargo}</option>
+                                                {/section}
+                                            </select><br>
+                                            </div>                                            
+                                            <div class="col-md-4">
                                              <label>Título</label>
                                              <input name="titulo" id="titulo" class="form-control" type="text" size="20" maxlength="45" required>
                                             <br>

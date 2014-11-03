@@ -60,5 +60,25 @@ class DaoUser extends PDOConnectionFactory {
         }
         parent::Close();
     }
+    
+     public function prestadorOS() {
+        try {
+            $sql = "SELECT 
+                        t1.idColaboradores, t1.nome, t2.Cargo, t3.Nome as nomeSetor
+                    FROM
+                        tbl_colaboradores AS t1
+                            INNER JOIN
+                        tbl_cargos AS t2 ON t1.idCargos = t2.idCargos
+                            INNER JOIN
+                        tbl_setor AS t3 ON t2.id_Setor = t3.id_Setor
+                        ORDER BY t1.nome";
+            $stmt = $this->conex->prepare($sql);
+            $stmt->execute();
+            return $stmt;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        parent::Close();
+    }
    
 }

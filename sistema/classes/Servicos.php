@@ -26,16 +26,13 @@ class Servicos {
     public function listarServicos() {
         $lista_servicos = $this->DAO->consultarServicos();        
         
-        var_dump($lista_servicos);
         return $lista_servicos;
     
     }
     public function inserirServicos($dados_OS) {
         if ($dados_OS) {
-         
-            
-            
-            
+
+            $this->DAO->inserirServicos($dados_OS);
             
         }       
         

@@ -25,8 +25,21 @@ class User {
         foreach ($nome as $row) {
             $user = $row;
         }
-      $nome = $user['nome'];
+        $nome = $user['nome'];
         return $nome;
+    }
+
+    public function listarTecnicos() {
+        $tec = $this->DAOu->prestadorOS();
+        $j = 0;
+        foreach ($tec as $row) {
+            $nomeTec[$j]['idColaboradores'] = $row['idColaboradores'];
+            $nomeTec[$j]['nome'] = $row['nome'];
+            $nomeTec[$j]['Cargo'] = $row['Cargo'];
+            $nomeTec[$j]['nomeSetor'] = $row['nomeSetor'];
+            $j++;
+        }
+        return $nomeTec;
     }
 
     public function listarAtivos() {
