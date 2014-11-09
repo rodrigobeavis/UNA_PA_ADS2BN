@@ -68,14 +68,13 @@
                                         <tfoot><th colspan="2">Total</th><td align="center">{$total_req}</td></tfoot>
                                     </table>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div id="graph"></div>
-                                
-                            </div>
-                                    <div class="col-md-8">
+                            </div>                           
+                                <div class="col-md-4 Breadcrumbs">
+                                    <div id="graph"></div>
+                                </div>
+                            <div class="col-md-4 Breadcrumbs">
                                 <div id="graph2"></div>
-                                
+
                             </div>
                         </div>
                     </div>

@@ -44,8 +44,6 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
 
     $page = "Relatório de incidentes";
 
-    $smarty->caching = true;
-    $smarty->cache_lifetime = 120;
 
 
     $smarty->assign('info_empresa', $info_empresa);

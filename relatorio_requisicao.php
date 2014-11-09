@@ -15,9 +15,6 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
         $dados = $_REQUEST;
     }
 
-    var_dump($_REQUEST);
-
-
     if (file_exists('./asstes/Smarty/libs/Smarty.class.php')) {
         require_once('./asstes/Smarty/libs/Smarty.class.php');
     } else {
