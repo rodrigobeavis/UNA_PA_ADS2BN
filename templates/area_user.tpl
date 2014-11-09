@@ -115,7 +115,7 @@
                     <div class="panel-heading titulo3">Requisições</div>
                     <div class="panel-body">
                         <div class="datagrid">
-                            <table>
+                            <table class="tbGrid">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -150,7 +150,7 @@
                     <div class="panel-heading titulo3">Incidentes</div>
                     <div class="panel-body">
                         <div class="datagrid">
-                            <table>
+                            <table class="tbGrid">
                                 <thead>
                                     <tr>
                                         <th>Id</th>

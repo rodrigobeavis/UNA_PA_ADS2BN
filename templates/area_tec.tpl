@@ -37,64 +37,131 @@
             </div>   
         </div>
         <div class="row">
-             <div><div id="menu" >{include file="menu.tpl" }</div></div>
-            </div>
-            <div class="col-md-10">
-                <header></header>
-                <article>
-                    <div class="panel panel-default">
-                        <div class="panel-heading titulo3">Requisições</div>
-                        <div class="panel-body">
-                            <div class="datagrid">
-                                <table>
-                                   <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Título</th>
-                                            <th>Data da requisiação</th>
-                                            <th>Data estimatada</th>
-                                            <th>ID do ativo</th>
-                                            <th>solicitante</th>
-                                            <th>status</th>                                           
-                                        </tr>
-                                    </thead>               
-                                    <tbody>
-                                        {section name=inc loop=$info_requisicoes}
+            <div><div id="menu" >{include file="menu.tpl" }</div></div>
+        </div>
+        <div class="col-md-10">
+            <header></header>
+            <article>
+                <div class="panel panel-default">
+                    <div class="panel-heading titulo3">Requisições</div>
+                    <div class="panel-body">
+                        <div class="datagrid">
+                            <table class="tbGrid">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Título</th>
+                                        <th>Data da requisiação</th>
+                                        <th>Data estimatada</th>
+                                        <th>ID do ativo</th>
+                                        <th>solicitante</th>
+                                        <th>status</th>
+                                        <th>Detalhar</th>
+                                    </tr>
+                                </thead>               
+                                <tbody>
+                                    {section name=inc loop=$info_requisicoes}
                                         <tr>
                                             <td>{$info_requisicoes[inc].id_servico}</td>
                                             <td>{$info_requisicoes[inc].titulo}</td>
                                             <td>{$info_requisicoes[inc].dataHoraInicial}</td>
                                             <td>{$info_requisicoes[inc].data_estimada}</td>
-                                            <td>{$info_requisicoes[inc].idAtivos} -{$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
+                                            <td>{$info_requisicoes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
                                             <td>{$info_requisicoes[inc].solicitante}</td>
                                             <td>{$info_requisicoes[inc].status}</td>
+                                            <td>
+                                                <div id="detalhar_requisiao">
+                                                    <div>                                             
+                                                        <a class="btn btn-default" data-toggle="modal" href="#OS">Editar</a>
+                                                    </div>
+
+                                                    <div class="modal fade" id="OS">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+                                                                    <h4 class="modal-title">detalhar</h4>
+                                                                </div>                            
+                                                                <div class="modal-body">
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form action="#" method="POST">
+                                                                                <div class="col-md-4">
+                                                                                    <label>Tipo</label>
+                                                                                    <select id="tipo" name="tipo" class="form-control" required>
+                                                                                        <option></option>
+                                                                                        <option value="1">Incidentes</option>
+                                                                                        <option value="2">Requisições</option>
+                                                                                    </select><br>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <label>Ativo</label>
+                                                                                    <select id="ativos" name="ativos" class="form-control" required>
+                                                                                        <option></option>
+
+                                                                                    </select><br>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <label>Prestador</label>
+                                                                                    <select id="prestador" name="prestador" class="form-control" required>
+                                                                                        <option></option>
+
+                                                                                    </select><br>
+                                                                                </div>                                            
+                                                                                <div class="col-md-4">
+                                                                                    <label>Título</label>
+                                                                                    <input name="titulo" id="titulo" class="form-control" type="text" size="20" maxlength="45" required>
+                                                                                    <br>
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <label>Descrição</label><br>
+                                                                                    <textarea id="descricao" name="descricao" class="form-control" rows="3" required></textarea>
+                                                                                </div><br>
+                                                                                <div class="col-md-4">
+                                                                                    <label></label>
+                                                                                    <div class="">
+                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                                                        <button type="submit" class="btn btn-primary">Registrar</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>     
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
-                                        {sectionelse}
-                                            <td colspan="6">Não há requisições no momento</td>
-                                        {/section}
-                                    </tbody>
-                                </table>
-                            </div>                       
-                        </div>
-                    </div>                  
-                    <div class="panel panel-default">
-                        <div class="panel-heading titulo3">Incidentes</div>
-                        <div class="panel-body">
-                            <div class="datagrid">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Título</th>
-                                            <th>Data da Incidente</th>
-                                            <th>Data estimatada</th>
-                                            <th>ID do ativo</th>
-                                            <th>Solicitante</th>
-                                            <th>status</th>                                           
-                                        </tr>
-                                    </thead>               
-                                    <tbody>
-                                        {section name=inc loop=$info_incidentes}
+                                    {sectionelse}
+                                    <td colspan="6">Não há requisições no momento</td>
+                                {/section}
+                                </tbody>
+                            </table>
+                        </div>                       
+                    </div>
+                </div>                  
+                <div class="panel panel-default">
+                    <div class="panel-heading titulo3">Incidentes</div>
+                    <div class="panel-body">
+                        <div class="datagrid">
+                            <table class="tbGrid">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Título</th>
+                                        <th>Data da Incidente</th>
+                                        <th>Data estimatada</th>
+                                        <th>ID do ativo</th>
+                                        <th>Solicitante</th>
+                                        <th>status</th>
+                                        <th>Detalhar</th>
+                                    </tr>
+                                </thead>               
+                                <tbody>
+                                    {section name=inc loop=$info_incidentes}
                                         <tr>
                                             <td>{$info_incidentes[inc].id_servico}</td>
                                             <td>{$info_incidentes[inc].titulo}</td>
@@ -103,16 +170,81 @@
                                             <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
                                             <td>{$info_incidentes[inc].solicitante}</td>
                                             <td>{$info_incidentes[inc].status}</td>
+                                            <td>                                                                                         
+                                                <div id="detalhar_requisiao">
+                                                    <div>                                             
+                                                        <a class="btn btn-default" data-toggle="modal" href="#OS">Editar</a>
+                                                    </div>
+
+                                                    <div class="modal fade" id="OS">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+                                                                    <h4 class="modal-title">detalhar</h4>
+                                                                </div>                            
+                                                                <div class="modal-body">
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form action="#" method="POST">
+                                                                                <div class="col-md-4">
+                                                                                    <label>Tipo</label>
+                                                                                    <select id="tipo" name="tipo" class="form-control" required>
+                                                                                        <option></option>
+                                                                                        <option value="1">Incidentes</option>
+                                                                                        <option value="2">Requisições</option>
+                                                                                    </select><br>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <label>Ativo</label>
+                                                                                    <select id="ativos" name="ativos" class="form-control" required>
+                                                                                        <option></option>
+
+                                                                                    </select><br>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <label>Prestador</label>
+                                                                                    <select id="prestador" name="prestador" class="form-control" required>
+                                                                                        <option></option>
+
+                                                                                    </select><br>
+                                                                                </div>                                            
+                                                                                <div class="col-md-4">
+                                                                                    <label>Título</label>
+                                                                                    <input name="titulo" id="titulo" class="form-control" type="text" size="20" maxlength="45" required>
+                                                                                    <br>
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <label>Descrição</label><br>
+                                                                                    <textarea id="descricao" name="descricao" class="form-control" rows="3" required></textarea>
+                                                                                </div><br>
+                                                                                <div class="col-md-4">
+                                                                                    <label></label>
+                                                                                    <div class="">
+                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                                                        <button type="submit" class="btn btn-primary">Registrar</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>     
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                              
+                                            </td>
                                         </tr>
-                                        {sectionelse}
-                                            <td colspan="6">Não há incidentes no momento</td>
-                                        {/section}
-                                    </tbody>
-                                </table>
-                            </div>  
-                        </div>
+                                    {sectionelse}
+                                    <td colspan="6">Não há incidentes no momento</td>
+                                {/section}
+                                </tbody>
+                            </table>
+                        </div>  
                     </div>
-                </article>                 
-            </div>
-                 {include file="footer.tpl"}                  
-        </div>        
+                </div>
+            </article>                 
+        </div>
+        {include file="footer.tpl"}                  
+    </div>        

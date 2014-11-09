@@ -70,21 +70,18 @@ class AreaUsuario {
         $info_serv[$i]['tipo'] = $row['tipo'];
         $info_serv[$i]['titulo'] = $row['titulo'];
         $info_serv[$i]['solicitacao'] = $row['solicitacao'];
-        $info_serv[$i]['dataHoraInicial'] = $row['dataHoraInicial'];
-        $info_serv[$i]['data_estimada'] = $row['data_estimada'];
-        $info_serv[$i]['dataHoraFinal'] = $row['dataHoraFinal'];
+        $info_serv[$i]['dataHoraInicial'] = (isset($row['dataHoraInicial']))? date('d/m/Y - H:m', strtotime($row['dataHoraInicial'])): "";
+        $info_serv[$i]['data_estimada'] = (isset($row['data_estimada']))? date('d/m/Y - H:m', strtotime($row['data_estimada'])):"Há estimar";
+        $info_serv[$i]['dataHoraFinal'] = (isset($row['dataHoraFinal']))? date('d/m/Y - H:m', strtotime($row['dataHoraFinal'])):"";
         $info_serv[$i]['idAtivos'] = $row['idAtivos'];
         $info_serv[$i]['infoAtivo'] = $this->ATIVOS->identificarAtivos($row['idAtivos']);
         $info_serv[$i]['solicitante'] = $this->USER->exibirNome($row['solicitante']);
         $info_serv[$i]['prestador'] = $this->USER->exibirNome($row['prestador']);
         $info_serv[$i]['status'] = ($row['status'] == 0)? "Ativo" :"Inativo";      
         }
-        $i++;
-      
-    }
-    
-      
-    
+        $i++;    
+    } 
+  
     sort($info_serv);
     return $info_serv;
     }

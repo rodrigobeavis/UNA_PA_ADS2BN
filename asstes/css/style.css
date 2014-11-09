@@ -111,7 +111,7 @@ nav#menu a:hover{
 
 /* Grid Zebrado*/
 .tbGrid tr:nth-child(even) td {background: #E9E9E9; height:15px;} /* Linhas com fundo cinza escuro */
-.tbGrid tr:nth-child(odd) td {background: #DCDCDC; height:15px;} /* Linhas com fundo cinza claro */
+.tbGrid tr:nth-child(odd) td {height:15px;} /* Linhas com fundo cinza claro */
 .tbGrid tr:hover td{background: #B0E2FF; height:15px;} /* Linhas ao passar o mouse #azul claro*/
 
 .tbGrid th{
