@@ -47,16 +47,16 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $id_user = $_SESSION['id_Colaboradores'];
     
     $info_requisicoes = $requisicoes->relatorioRequisicao();
+    $total_req = $requisicoes->totalrequisicoes();
     $info_empresa = $area_usuario->empresaUser($id_user);
+    
 
     $page = "Relatório Requisições";
-
-    $smarty->caching = true;
-    $smarty->cache_lifetime = 120;
-
-
+    
+    
+    $smarty->assign('total_req', $total_req);
     $smarty->assign('info_requisicoes', $info_requisicoes);
-     $smarty->assign('info_empresa', $info_empresa);
+    $smarty->assign('info_empresa', $info_empresa);
     $smarty->assign('page', $page);
 
     $smarty->display('relatorio_requisicao.tpl');

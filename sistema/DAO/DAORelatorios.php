@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Description of DaoUser
  *
@@ -38,6 +39,7 @@ class DAORelatorios extends PDOConnectionFactory {
         }
         parent::Close();
     }
+
     public function nomeUser($cod_autenticacao) {
         try {
             $sql = "SELECT 
@@ -56,8 +58,8 @@ class DAORelatorios extends PDOConnectionFactory {
         }
         parent::Close();
     }
-    
-     public function prestadorOS() {
+
+    public function prestadorOS() {
         try {
             $sql = "SELECT 
                         t1.idColaboradores, t1.nome, t2.Cargo, t3.Nome as nomeSetor
@@ -76,5 +78,5 @@ class DAORelatorios extends PDOConnectionFactory {
         }
         parent::Close();
     }
-   
+
 }

@@ -1,8 +1,11 @@
 
 {include file="header.tpl" title=$page}
-<script src="../sistema/funcoes/js/"></script>
+<link rel="stylesheet" href="./asstes/morris.js/morris.css">
 <script src="./asstes/js/jquery.complexify.js"></script>
-<script src="./sistema/funcoes/js/cadastro_user.js"></script>
+<script src="./asstes/morris.js/morris.js"></script>
+<script src="./asstes/morris.js/raphael-min.js"></script>
+<script src="./sistema/funcoes/js/relatorio_requisicao.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -46,25 +49,35 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="datagrid">
-                                    <table boder="0">
+                                    <table boder="0" class="tbGrid" >
                                         <thead>
                                             <tr>
                                                 <th>Modelo</th><th>Patrimônio</th><th>Total de Requisições</th>
                                             </tr>
                                         </thead>
                                         <!--<tfoot><tr><td colspan="4"><div id="paging"><ul><li><a href="#"><span>Previous</span></a></li><li><a href="#" class="active"><span>1</span></a></li><li><a href="#"><span>2</span></a></li><li><a href="#"><span>3</span></a></li><li><a href="#"><span>4</span></a></li><li><a href="#"><span>5</span></a></li><li><a href="#"><span>Next</span></a></li></ul></div></tr></tfoot> -->
-                                        <tbody>
+                                        <tbody align="center">
                                             {section name=req loop=$info_requisicoes}
-                                                <tr><td>{$info_requisicoes[req].modelo}</td><td>{$info_requisicoes[req].patrimonio}</td><td>{$info_requisicoes[req].quantOS}</td></tr>
+                                                <tr>
+                                                    <td id="modelo{$smarty.section.req.index}">{$info_requisicoes[req].modelo}</td>
+                                                    <td id="patrimonio{$smarty.section.req.index}">{$info_requisicoes[req].patrimonio}</td>
+                                                    <td id="quantOS{$smarty.section.req.index}">{$info_requisicoes[req].quantOS}</td>
+                                                </tr>
                                             {/section}
                                         </tbody>
+                                        <tfoot><th colspan="2">Total</th><td align="center">{$total_req}</td></tfoot>
                                     </table>
-                                </div>         
-
+                                </div>
                             </div>
-
+                            <div class="col-md-6">
+                                <div id="graph"></div>
+                                
+                            </div>
+                                    <div class="col-md-8">
+                                <div id="graph2"></div>
+                                
+                            </div>
                         </div>
-
                     </div>
                 </div>                  
             </article>                

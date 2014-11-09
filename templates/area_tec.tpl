@@ -1,6 +1,6 @@
 
 {include file="header.tpl" title=$page}
-<script src="../sistema/funcoes/js/AreaUsuario.js"></script>
+<script src="../sistema/funcoes/js/area_tecnica.js"></script>
 </head>
 <body>
     <div class="container">
@@ -56,14 +56,14 @@
                                         <th>ID do ativo</th>
                                         <th>solicitante</th>
                                         <th>status</th>
-                                        <th>Detalhar</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>               
                                 <tbody>
                                     {section name=inc loop=$info_requisicoes}
-                                        <tr>
+                                        <tr align="center">
                                             <td>{$info_requisicoes[inc].id_servico}</td>
-                                            <td>{$info_requisicoes[inc].titulo}</td>
+                                            <td align="left">{$info_requisicoes[inc].titulo}</td>
                                             <td>{$info_requisicoes[inc].dataHoraInicial}</td>
                                             <td>{$info_requisicoes[inc].data_estimada}</td>
                                             <td>{$info_requisicoes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
@@ -80,7 +80,7 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
-                                                                    <h4 class="modal-title">detalhar</h4>
+                                                                    <h4 class="modal-title">Ações</h4>
                                                                 </div>                            
                                                                 <div class="modal-body">
 
@@ -157,14 +157,14 @@
                                         <th>ID do ativo</th>
                                         <th>Solicitante</th>
                                         <th>status</th>
-                                        <th>Detalhar</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>               
                                 <tbody>
                                     {section name=inc loop=$info_incidentes}
-                                        <tr>
+                                        <tr align="center">
                                             <td>{$info_incidentes[inc].id_servico}</td>
-                                            <td>{$info_incidentes[inc].titulo}</td>
+                                            <td align="left">{$info_incidentes[inc].titulo}</td>
                                             <td>{$info_incidentes[inc].dataHoraInicial}</td>
                                             <td>{$info_incidentes[inc].data_estimada}</td>
                                             <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
@@ -181,7 +181,7 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
-                                                                    <h4 class="modal-title">detalhar</h4>
+                                                                    <h4 class="modal-title">Ações</h4>
                                                                 </div>                            
                                                                 <div class="modal-body">
 

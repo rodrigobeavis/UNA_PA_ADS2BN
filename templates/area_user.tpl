@@ -1,6 +1,5 @@
-
+<script src="../sistema/funcoes/js/area_usuario.js"></script>
 {include file="header.tpl" title=Home}
-<script src="../sistema/funcoes/js/AreaUsuario.js"></script>
 </head>
 <body>
     <div class="container">        
@@ -115,12 +114,12 @@
                     <div class="panel-heading titulo3">Requisições</div>
                     <div class="panel-body">
                         <div class="datagrid">
-                            <table class="tbGrid">
+                            <table class="tbGrid" id="requisicao">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Título</th>
-                                        <th>Data da requisiação</th>
+                                        <th data-sort="int">Id</th>
+                                        <th data-sort="string">Título</th>
+                                        <th data-sort="int">Data da requisiação</th>
                                         <th>Data estimatada</th>
                                         <th>ID do ativo</th>
                                         <th>Prestador</th>
@@ -129,9 +128,9 @@
                                 </thead>               
                                 <tbody>
                                     {section name=inc loop=$info_requisicoes}
-                                        <tr>
+                                        <tr align="center">
                                             <td>{$info_requisicoes[inc].id_servico}</td>
-                                            <td>{$info_requisicoes[inc].titulo}</td>
+                                            <td align="left">{$info_requisicoes[inc].titulo}</td>
                                             <td>{$info_requisicoes[inc].dataHoraInicial}</td>
                                             <td>{$info_requisicoes[inc].data_estimada}</td>
                                             <td>{$info_requisicoes[inc].idAtivos}-{$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
@@ -164,9 +163,9 @@
                                 </thead>               
                                 <tbody>
                                     {section name=inc loop=$info_incidentes}
-                                        <tr>
+                                        <tr align="center">
                                             <td>{$info_incidentes[inc].id_servico}</td>
-                                            <td>{$info_incidentes[inc].titulo}</td>
+                                            <td align="left">{$info_incidentes[inc].titulo}</td>
                                             <td>{$info_incidentes[inc].dataHoraInicial}</td>
                                             <td>{$info_incidentes[inc].data_estimada}</td>
                                             <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
