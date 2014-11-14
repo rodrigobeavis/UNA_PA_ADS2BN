@@ -4,8 +4,17 @@
  * and open the template in the editor.
  */
 
-$(function() {            
-            $('#data_estimadaPost').datetimepicker();
-            
-        }
+$(function () {
+
+    var T_req = $('#total_incidentes').val();
+    var T_inc = $('#total_requisicoes').val();
+
+    for (var i = 0; i <= T_inc; i++) {
+        $('#data_estimada_inc'+i).datetimepicker();
+    }
+    
+     for (var i = 0; i <= T_req; i++) {
+        $('#data_estimada_req'+i).datetimepicker();
+    }
+}
 );

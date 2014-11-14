@@ -127,15 +127,15 @@
                                     </tr>
                                 </thead>               
                                 <tbody>
-                                    {section name=inc loop=$info_requisicoes}
+                                    {section name=req loop=$info_requisicoes}
                                         <tr align="center">
-                                            <td>{$info_requisicoes[inc].id_servico}</td>
-                                            <td align="left">{$info_requisicoes[inc].titulo}</td>
-                                            <td>{$info_requisicoes[inc].dataHoraInicial}</td>
-                                            <td>{$info_requisicoes[inc].data_estimada}</td>
-                                            <td>{$info_requisicoes[inc].idAtivos}-{$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
-                                            <td>{$info_requisicoes[inc].prestador}</td>
-                                            <td>{$info_requisicoes[inc].status}</td>
+                                            <td>{$info_requisicoes[req].id_servico}</td>
+                                            <td align="left">{$info_requisicoes[req].titulo}</td>
+                                            <td>{$info_requisicoes[req].dataHoraInicial}</td>
+                                            <td>{$info_requisicoes[req].data_estimada}</td>
+                                            <td>{$info_requisicoes[req].idAtivos}-{$info_requisicoes[req].infoAtivo.modelo} - {$info_requisicoes[req].infoAtivo.patrimonio}</td>
+                                            <td>{$info_requisicoes[req].prestador}</td>
+                                            <td>{$info_requisicoes[req].status}</td>
                                         </tr>
                                     {sectionelse}
                                     <td colspan="6">Não há requisições no momento</td>
@@ -168,7 +168,7 @@
                                             <td align="left">{$info_incidentes[inc].titulo}</td>
                                             <td>{$info_incidentes[inc].dataHoraInicial}</td>
                                             <td>{$info_incidentes[inc].data_estimada}</td>
-                                            <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
+                                            <td>{$info_incidentes[inc].idAtivos} - {$info_incidentes[inc].infoAtivo.modelo} - {$info_incidentes[inc].infoAtivo.patrimonio}</td>
                                             <td>{$info_incidentes[inc].prestador}</td>
                                             <td>{$info_incidentes[inc].status}</td>
                                         </tr>

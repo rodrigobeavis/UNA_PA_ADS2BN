@@ -77,12 +77,17 @@ class AreaUsuario {
         $info_serv[$i]['infoAtivo'] = $this->ATIVOS->identificarAtivos($row['idAtivos']);
         $info_serv[$i]['solicitante'] = $this->USER->exibirNome($row['solicitante']);
         $info_serv[$i]['prestador'] = $this->USER->exibirNome($row['prestador']);
-        $info_serv[$i]['status'] = ($row['status'] == 0)? "Ativo" :"Inativo";      
+        $info_serv[$i]['status'] = ($row['status'] == 0)? "Aguardando":$row['status'];      
         }
         $i++;    
     }   
     sort($info_serv);
     return $info_serv;
+    }
+    
+    public function definirStatus() { 
+        $option_status =  array("Analisando","Verificando","Testando","Concluído");
+      return $option_status;
     }
     
     

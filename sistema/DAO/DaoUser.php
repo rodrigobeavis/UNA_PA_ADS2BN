@@ -64,14 +64,18 @@ class DaoUser extends PDOConnectionFactory {
      public function prestadorOS() {
         try {
             $sql = "SELECT 
-                        t1.idColaboradores, t1.nome, t2.Cargo, t3.Nome as nomeSetor
+                        t1.idColaboradores, t1.nome, t2.Cargo, t3.Nome AS nomeSetor
                     FROM
                         tbl_colaboradores AS t1
                             INNER JOIN
                         tbl_cargos AS t2 ON t1.idCargos = t2.idCargos
                             INNER JOIN
                         tbl_setor AS t3 ON t2.id_Setor = t3.id_Setor
-                        ORDER BY t1.nome";
+                            INNER JOIN
+                        tbl_autenticacao AS t4 ON t1.idColaboradores = t4.id_Colaboradores
+                    WHERE
+                        t4.areaAcesso = 0
+                    ORDER BY t1.nome";
             $stmt = $this->conex->prepare($sql);
             $stmt->execute();
             return $stmt;

@@ -57,54 +57,116 @@
                                         <th>ID do ativo</th>
                                         <th>solicitante</th>
                                         <th>status</th>
-                                        <th>Ações</th>
+                                        <th>Estimar Tempo</th>
+                                        <th>Status</th>
+                                        <th>Solução</th>
                                     </tr>
                                 </thead>               
                                 <tbody>
-                                    {section name=inc loop=$info_requisicoes}
+                                    {section name=req loop=$info_requisicoes}
                                         <tr align="center">
-                                            <td id="id{$smarty.section.inc.index}">{$info_requisicoes[inc].id_servico}</td>
-                                            <td id="titulo{$smarty.section.inc.index}" align="left">{$info_requisicoes[inc].titulo}</td>
-                                            <td id="dataHoraInicial{$smarty.section.inc.index}">{$info_requisicoes[inc].dataHoraInicial}</td>
-                                            <td id="data_estimada{$smarty.section.inc.index}">{$info_requisicoes[inc].data_estimada}</td>
-                                            <td id="modelo{$smarty.section.inc.index}">{$info_requisicoes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
-                                            <td id="solicitante{$smarty.section.inc.index}">{$info_requisicoes[inc].solicitante}</td>
-                                            <td id="status{$smarty.section.inc.index}" >{$info_requisicoes[inc].status}</td>
+                                            <td id="id{$smarty.section.req.index}">{$info_requisicoes[req].id_servico}</td>
+                                            <td id="titulo{$smarty.section.req.index}" align="left">{$info_requisicoes[req].titulo}</td>
+                                            <td id="dataHoraInicial{$smarty.section.req.index}">{$info_requisicoes[req].dataHoraInicial}</td>
+                                            <td id="data_estimada{$smarty.section.req.index}">{$info_requisicoes[req].data_estimada}</td>
+                                            <td id="modelo{$smarty.section.req.index}">{$info_requisicoes[req].idAtivos} - {$info_requisicoes[req].infoAtivo.modelo} - {$info_requisicoes[req].infoAtivo.patrimonio}</td>
+                                            <td id="solicitante{$smarty.section.req.index}">{$info_requisicoes[req].solicitante}</td>
+                                            <td id="status{$smarty.section.req.index}" >{$info_requisicoes[req].status}</td>
                                             <td>
-                                                <div id="detalhar_requisiao">
+                                                <div id="detalhar_requisiao_prazo">
                                                     <div>                                             
-                                                        <a class="btn btn-default" data-toggle="modal" href="#OS">Editar</a>
+                                                        <a class="btn btn-default" data-toggle="modal" href="#prazo{$info_requisicoes[req].id_servico}"><span class="glyphicon glyphicon-time" aria-hidden="true"></a>
                                                     </div>
-                                                    <div class="modal fade" id="OS">
+                                                    <div class="modal fade" id="prazo{$info_requisicoes[req].id_servico}">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
-                                                                    <h4 class="modal-title">Ações</h4>
+                                                                    <h4 class="modal-title">Defina um tempo para resolução ou verificação</h4>
                                                                 </div>                            
                                                                 <div class="modal-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <form action="#" method="POST">                                                                                                                                                             
-                                                                                    <div class="col-md-4 navbar-form navbar-left" role="search">                                                                                        
-                                                                                        <label>Estimativa para Resolução</label><br>
-                                                                                        <input id="data_estimadaPost" name="data_estimada" class="form-control" type="text" size="20" maxlength="45" required placeholder="insira Data e Hora">
-                                                                                        <button type="submit" class="btn btn-primary">Registrar Estimativa</button>                                                              
-                                                                                    </div> 
-                                                                                </form>  
-                                                                            <br><br><br><br>
-                                                                                <form action="#" method="POST">                                                                                    
-                                                                                    <div class="col-md-12">
-                                                                                        <textarea id="solucao" name="solucao" class="form-control" rows="3" required placeholder="Descreva a solução..."></textarea>
-                                                                                    </div><br>
-                                                                                    <div class="col-md-6">
-                                                                                        <label></label>
-                                                                                        <div class="">
-                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                                                                            <button type="submit" class="btn btn-primary">Registrar Resolução</button>
-                                                                                        </div>
+                                                                                <div class="col-md-4 navbar-form navbar-left" role="search">                                                                                        
+                                                                                    <label>Estimativa para Resolução</label><br>
+                                                                                    <input id="data_estimada_req{$smarty.section.req.index}" name="data_estimada" class="form-control" type="text" size="20" maxlength="45" required placeholder="insira Data e Hora">
+                                                                                    <input type="hidden" name="id_servico" value="{$info_requisicoes[req].id_servico}">
+                                                                                    <button type="submit" class="btn btn-primary">Registrar Estimativa</button>                                                              
+                                                                                </div> 
+                                                                            </form>                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="detalhar_requisiao_status">
+                                                    <div>                                             
+                                                        <a class="btn btn-default" data-toggle="modal" href="#status{$info_requisicoes[req].id_servico}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span></a>
+                                                    </div>
+                                                    <div class="modal fade" id="status{$info_requisicoes[req].id_servico}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+                                                                    <h4 class="modal-title">Defina um status para a requisição</h4>
+                                                                </div>                            
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">                                                                           
+                                                                            <form action="#" method="POST">                                                                                                                                                             
+                                                                                <div class="col-md-4 navbar-form navbar-left" role="search">                                                                                        
+                                                                                    <label>Definir Status</label><br>
+                                                                                    <select id="status" name="status" class="form-control" required>
+                                                                                        <option></option>
+                                                                                        {section name=op loop=$optionStatus}                                                                                           
+                                                                                            <option value="{$smarty.section.op.index}">{$optionStatus[op]}</option>                                                                                           
+                                                                                        {/section}
+                                                                                    </select>
+                                                                                    <input type="hidden" name="id_servico" value="{$info_requisicoes[req].id_servico}">
+                                                                                    <button type="submit" class="btn btn-primary">Registrar Estimativa</button>                                                                                    
+                                                                                </div> 
+                                                                            </form>                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="detalhar_requisiao_solucao">
+                                                    <div>                                             
+                                                        <a class="btn btn-default" data-toggle="modal" href="#solucao{$info_requisicoes[req].id_servico}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>
+                                                    </div>
+                                                    <div class="modal fade" id="solucao{$info_requisicoes[req].id_servico}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+                                                                    <h4 class="modal-title">Solução proposta</h4>
+                                                                </div>                            
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form action="#" method="POST">                                                                                    
+                                                                                <div class="col-md-12">
+                                                                                    <textarea id="solucao" name="solucao" class="form-control" rows="3" required placeholder="Descreva a solução..."></textarea>
+                                                                                    <input type="hidden" name="id_servico" value="{$info_requisicoes[req].id_servico}">
+                                                                                </div><br>
+                                                                                <div class="col-md-6">
+                                                                                    <label></label>
+                                                                                    <div class="">
+                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                                                        <button type="submit" class="btn btn-primary">Registrar Resolução</button>
                                                                                     </div>
-                                                                                </form>     
+                                                                                </div>
+                                                                            </form>     
                                                                         </div>
                                                                     </div>
                                                                 </div>                            
@@ -136,7 +198,9 @@
                                         <th>ID do ativo</th>
                                         <th>Solicitante</th>
                                         <th>status</th>
-                                        <th>Ações</th>
+                                        <th>Estimar Tempo</th>
+                                        <th>Status</th>
+                                        <th>Solução</th>
                                     </tr>
                                 </thead>               
                                 <tbody>
@@ -149,60 +213,98 @@
                                             <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
                                             <td>{$info_incidentes[inc].solicitante}</td>
                                             <td>{$info_incidentes[inc].status}</td>
-                                            <td>                                                                                         
-                                                <div id="detalhar_requisiao">
+                                            <td>
+                                                <div id="detalhar_incidentes_prazo">
                                                     <div>                                             
-                                                        <a class="btn btn-default" data-toggle="modal" href="#OS">Editar</a>
+                                                        <a class="btn btn-default" data-toggle="modal" href="#prazo{$info_incidentes[inc].id_servico}"><span class="glyphicon glyphicon-time" aria-hidden="true"></a>
                                                     </div>
-
-                                                    <div class="modal fade" id="OS">
+                                                    <div class="modal fade" id="prazo{$info_incidentes[inc].id_servico}">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
-                                                                    <h4 class="modal-title">Ações</h4>
+                                                                    <h4 class="modal-title">Defina um tempo para resolução ou verificação</h4>
                                                                 </div>                            
                                                                 <div class="modal-body">
-
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <form action="#" method="POST">
-                                                                                <div class="col-md-4">
-                                                                                    <label>Tipo</label>
-                                                                                    <select id="tipo" name="tipo" class="form-control" required>
+                                                                            <form action="#" method="POST">                                                                                                                                                             
+                                                                                <div class="col-md-4 navbar-form navbar-left" role="search">                                                                                        
+                                                                                    <label>Estimativa para Resolução</label><br>
+                                                                                    <input id="data_estimada_inc{$smarty.section.inc.index}" name="data_estimada" class="form-control" type="text" size="20" maxlength="45" required placeholder="insira Data e Hora">
+                                                                                    <input type="hidden" name="id_servico" value="{$info_incidentes[inc].id_servico}">
+                                                                                    <button type="submit" class="btn btn-primary">Registrar Estimativa</button>                                                              
+                                                                                </div> 
+                                                                            </form>                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="detalhar_incidentes_status">
+                                                    <div>                                             
+                                                        <a class="btn btn-default" data-toggle="modal" href="#status{$info_incidentes[inc].id_servico}"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span></a>
+                                                    </div>
+                                                    <div class="modal fade" id="status{$info_incidentes[inc].id_servico}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+                                                                    <h4 class="modal-title">Defina um status para o incidente</h4>
+                                                                </div>                            
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">                                                                           
+                                                                            <form action="#" method="POST">                                                                                                                                                             
+                                                                                <div class="col-md-4 navbar-form navbar-left" role="search">                                                                                        
+                                                                                    <label>Definir Status</label><br>
+                                                                                    <select id="status" name="status" class="form-control" required>
                                                                                         <option></option>
-                                                                                        <option value="1">Incidentes</option>
-                                                                                        <option value="2">Requisições</option>
-                                                                                    </select><br>
-                                                                                </div>
-                                                                                <div class="col-md-4">
-                                                                                    <label>Ativo</label>
-                                                                                    <select id="ativos" name="ativos" class="form-control" required>
-                                                                                        <option></option>
-
-                                                                                    </select><br>
-                                                                                </div>
-                                                                                <div class="col-md-4">
-                                                                                    <label>Prestador</label>
-                                                                                    <select id="prestador" name="prestador" class="form-control" required>
-                                                                                        <option></option>
-
-                                                                                    </select><br>
-                                                                                </div>                                            
-                                                                                <div class="col-md-4">
-                                                                                    <label>Título</label>
-                                                                                    <input name="titulo" id="titulo" class="form-control" type="text" size="20" maxlength="45" required>
-                                                                                    <br>
-                                                                                </div>
+                                                                                        {section name=op loop=$optionStatus}                                                                                           
+                                                                                            <option value="{$smarty.section.op.index}">{$optionStatus[op]}</option>                                                                                           
+                                                                                        {/section}
+                                                                                    </select>
+                                                                                    <input type="hidden" name="id_servico" value="{$info_incidentes[inc].id_servico}">
+                                                                                    <button type="submit" class="btn btn-primary">Registrar Estimativa</button>                                                              
+                                                                                </div> 
+                                                                            </form>                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="detalhar_incidentes_solucao">
+                                                    <div>                                             
+                                                        <a class="btn btn-default" data-toggle="modal" href="#solucao{$info_incidentes[inc].id_servico}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>
+                                                    </div>
+                                                    <div class="modal fade" id="solucao{$info_incidentes[inc].id_servico}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+                                                                    <h4 class="modal-title">Solução proposta</h4>
+                                                                </div>                            
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form action="#" method="POST">                                                                                    
                                                                                 <div class="col-md-12">
-                                                                                    <label>Descrição</label><br>
-                                                                                    <textarea id="descricao" name="descricao" class="form-control" rows="3" required></textarea>
+                                                                                    <textarea id="solucao" name="solucao" class="form-control" rows="3" required placeholder="Descreva a solução..."></textarea>
+                                                                                    <input type="hidden" name="id_servico" value="{$info_incidentes[inc].id_servico}">
                                                                                 </div><br>
-                                                                                <div class="col-md-4">
+                                                                                <div class="col-md-6">
                                                                                     <label></label>
                                                                                     <div class="">
                                                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                                                                        <button type="submit" class="btn btn-primary">Registrar</button>
+                                                                                        <button type="submit" class="btn btn-primary">Registrar Resolução</button>
                                                                                     </div>
                                                                                 </div>
                                                                             </form>     
@@ -212,7 +314,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>                                              
+                                                </div>
                                             </td>
                                         </tr>
                                     {sectionelse}
@@ -220,9 +322,11 @@
                                 {/section}
                                 </tbody>
                             </table>
+                                <input type="hidden" id="total_incidentes" value="{$smarty.section.inc.total}">
+                                <input type="hidden" id="total_requisicoes" value="{$smarty.section.req.total}">
                         </div>  
                     </div>
-                </div>
+                </div>                              
             </article>                 
         </div>
         {include file="footer.tpl"}                  

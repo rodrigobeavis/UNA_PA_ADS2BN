@@ -67,9 +67,8 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $info_incidentes = $area_usuario->Servicos(1,$id_user);    
     $info_requisicoes = $area_usuario->Servicos(2,$id_user);
     
-    $info_ativos = $ativos->listarAtivos();
-  
-
+    $info_ativos = $ativos->listarAtivos();  
+    $smarty->force_compile = true;
     $smarty->caching = true;
     $smarty->cache_lifetime = 120;
 

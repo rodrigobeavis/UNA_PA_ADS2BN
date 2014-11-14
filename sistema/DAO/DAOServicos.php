@@ -41,7 +41,7 @@ class DAOServicos extends PDOConnectionFactory{
         parent::Close();
     }
     public function inserirServicos($dados_OS) {
-        var_dump($dados_OS);
+        
         try {
             $sql = "INSERT INTO tbl_servicos
                         (tipo,
