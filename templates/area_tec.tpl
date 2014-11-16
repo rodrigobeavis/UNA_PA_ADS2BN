@@ -38,7 +38,7 @@
             </div>   
         </div>
         <div class="row">
-            <div><div id="menu" >{include file="menu.tpl" }</div></div>
+            <div><div id="menu" >{include file="menu.tpl"}</div></div>
         </div>
         <div class="col-md-10">
             <header></header>
@@ -67,11 +67,11 @@
                                         <tr align="center">
                                             <td id="id{$smarty.section.req.index}">{$info_requisicoes[req].id_servico}</td>
                                             <td id="titulo{$smarty.section.req.index}" align="left">{$info_requisicoes[req].titulo}</td>
-                                            <td id="dataHoraInicial{$smarty.section.req.index}">{$info_requisicoes[req].dataHoraInicial}</td>
-                                            <td id="data_estimada{$smarty.section.req.index}">{$info_requisicoes[req].data_estimada}</td>
+                                            <td id="data_inicial{$smarty.section.req.index}">{$info_requisicoes[req].dataHoraInicial}</td>
+                                            <td id="data_estimada_req_real{$smarty.section.req.index}">{$info_requisicoes[req].data_estimada}</td>
                                             <td id="modelo{$smarty.section.req.index}">{$info_requisicoes[req].idAtivos} - {$info_requisicoes[req].infoAtivo.modelo} - {$info_requisicoes[req].infoAtivo.patrimonio}</td>
                                             <td id="solicitante{$smarty.section.req.index}">{$info_requisicoes[req].solicitante}</td>
-                                            <td id="status{$smarty.section.req.index}" >{$info_requisicoes[req].status}</td>
+                                            <td id="status_req{$smarty.section.req.index}" >{$info_requisicoes[req].status}</td>
                                             <td>
                                                 <div id="detalhar_requisiao_prazo">
                                                     <div>                                             
@@ -209,10 +209,10 @@
                                             <td>{$info_incidentes[inc].id_servico}</td>
                                             <td align="left">{$info_incidentes[inc].titulo}</td>
                                             <td>{$info_incidentes[inc].dataHoraInicial}</td>
-                                            <td>{$info_incidentes[inc].data_estimada}</td>
+                                            <td id="data_estimada_inc_real{$smarty.section.inc.index}">{$info_incidentes[inc].data_estimada}</td>
                                             <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
                                             <td>{$info_incidentes[inc].solicitante}</td>
-                                            <td>{$info_incidentes[inc].status}</td>
+                                            <td id="status_inc{$smarty.section.inc.index}">{$info_incidentes[inc].status}</td>
                                             <td>
                                                 <div id="detalhar_incidentes_prazo">
                                                     <div>                                             

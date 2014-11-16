@@ -16,11 +16,16 @@ if (file_exists('./sistema/DAO/DAOServicos.php')) {
 } else {
     require_once('../DAO/DAOServicos.php');
 }
+if (file_exists('./sistema/funcoes/Utilitaria.php')) {
+    require_once('./sistema/funcoes/Utilitaria.php');
+} else {
+    require_once('../funcoes/Utilitaria.php');
+}
 class Servicos {
-    private $DAO;
+    private $DAO;    
 
     public function Servicos() {
-        $this->DAO = new DAOServicos();
+        $this->DAO = new DAOServicos();       
     }
 
     public function listarServicos() {
@@ -38,9 +43,27 @@ class Servicos {
         
     }
 
-    public function updateServicos($param) {
+    public function atualizarStatus($dados_status) {
+       
+        if ($dados_status) {
+             $this->DAO->updateStatus($dados_status);
+        }
+        
+       
+    }
+    public function atualizarTempo($dados_data) {
+        if ($dados_data) {            
+//         
+            $funcao = new Utilitaria();            
+            $dados_data['data_estimada'] = $funcao->inverterDateTime($dados_data['data_estimada']);
+            $this->DAO->updateTempo($dados_data);
+        }
         
         
-        
+    }
+    public function functionSolucao($dados_solucao) {
+        if ($dados_solucao) {
+             $this->DAO->updateSolucao($dados_solucao);
+        }
     }
 }
