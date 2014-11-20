@@ -32,7 +32,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     if (isset($_REQUEST)) {
         $dados = $_REQUEST;
     }
-    var_dump($dados);
+   // var_dump($dados);
 
     $smarty = new Smarty;
     $servico = new Servicos();
@@ -66,6 +66,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     $info_incidentes = $area_usuario->Servicos(1);
     $info_requisicoes = $area_usuario->Servicos(2);
 
+        
     $page = "AREA TECNICA";
 
 //    $smarty->caching = true;

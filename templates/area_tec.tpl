@@ -66,7 +66,7 @@
                                     {section name=req loop=$info_requisicoes}
                                         <tr align="center">
                                             <td id="id{$smarty.section.req.index}">{$info_requisicoes[req].id_servico}</td>
-                                            <td id="titulo{$smarty.section.req.index}" align="left">{$info_requisicoes[req].titulo}</td>
+                                            <td id="titulo{$smarty.section.req.index}" align="left" data-toggle="tooltip" data-placement="bottom" title="{$info_requisicoes[req].solicitacao}">{$info_requisicoes[req].titulo}</td>
                                             <td id="data_inicial{$smarty.section.req.index}">{$info_requisicoes[req].dataHoraInicial}</td>
                                             <td id="data_estimada_req_real{$smarty.section.req.index}">{$info_requisicoes[req].data_estimada}</td>
                                             <td id="modelo{$smarty.section.req.index}">{$info_requisicoes[req].idAtivos} - {$info_requisicoes[req].infoAtivo.modelo} - {$info_requisicoes[req].infoAtivo.patrimonio}</td>
@@ -207,10 +207,10 @@
                                     {section name=inc loop=$info_incidentes}
                                         <tr align="center">
                                             <td>{$info_incidentes[inc].id_servico}</td>
-                                            <td align="left">{$info_incidentes[inc].titulo}</td>
+                                            <td align="left" data-toggle="tooltip" data-placement="bottom" title="{$info_incidentes[inc].solicitacao}">{$info_incidentes[inc].titulo}</td>
                                             <td>{$info_incidentes[inc].dataHoraInicial}</td>
                                             <td id="data_estimada_inc_real{$smarty.section.inc.index}">{$info_incidentes[inc].data_estimada}</td>
-                                            <td>{$info_incidentes[inc].idAtivos} - {$info_requisicoes[inc].infoAtivo.modelo} - {$info_requisicoes[inc].infoAtivo.patrimonio}</td>
+                                            <td>{$info_incidentes[inc].idAtivos} - {$info_incidentes[inc].infoAtivo.modelo} - {$info_incidentes[inc].infoAtivo.patrimonio}</td>
                                             <td>{$info_incidentes[inc].solicitante}</td>
                                             <td id="status_inc{$smarty.section.inc.index}">{$info_incidentes[inc].status}</td>
                                             <td>

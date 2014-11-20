@@ -72,6 +72,9 @@ $(function sinalizaAtraso() {
             }
         }
     }
+});
 
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
 });

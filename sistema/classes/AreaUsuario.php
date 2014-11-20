@@ -69,7 +69,7 @@ class AreaUsuario {
         $info_serv[$i]['id_servico'] = $row['id_servico'];
         $info_serv[$i]['tipo'] = $row['tipo'];
         $info_serv[$i]['titulo'] = utf8_encode ($row['titulo'] );
-        $info_serv[$i]['solicitacao'] = utf8_encode($row['solicitacao']);
+        $info_serv[$i]['solicitacao'] = $row['solicitacao'];
         $info_serv[$i]['dataHoraInicial'] = (isset($row['dataHoraInicial']))? date('d/m/Y - H:m', strtotime($row['dataHoraInicial'])): "";
         $info_serv[$i]['data_estimada'] = (isset($row['data_estimada']))? date('d/m/Y - H:m', strtotime($row['data_estimada'])):"Aguardando";
         $info_serv[$i]['dataHoraFinal'] = (isset($row['dataHoraFinal']))? date('d/m/Y - H:m', strtotime($row['dataHoraFinal'])):"Aguardando";
