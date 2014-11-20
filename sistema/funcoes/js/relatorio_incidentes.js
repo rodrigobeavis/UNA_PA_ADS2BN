@@ -8,15 +8,17 @@
 $(function () {
 
 
+var data2 = $('#array_inc').val();
     Morris.Donut({
         element: 'graph',
         data: [
+            
             {value: 1, label: 'ADSF'},
-            {value: 1, label: 'dvc'},
-            {value: 2, label: 'SCA56'},
+            {value: 2, label: 'dvc'},
             {value: 2, label: 'gfsd'},
-            {value: 1, label: 'sxc'},
-            {value: 2, label: 'SXC878'}
+            {value: 1, label: 'SCA46'},
+            {value: 1, label: 'SCA56'},
+            {value: 4, label: 'SCRX'}
         ]
 //        ,
 //        formatter: function (x) {
@@ -30,11 +32,11 @@ $(function () {
         element: 'graph2',
         data: [
             {y: 'ADSF', a: 1},
-            {y: 'dvc', a: 1},
+            {y: 'dvc', a: 2},
             {y: 'gfsd', a: 2},
-            {y: 'SCA56', a: 2},
-            {y: 'sxc', a: 1},
-            {y: 'SXC878', a: 2}           
+            {y: 'SCA46', a: 1},
+            {y: 'SCA56', a: 1},
+            {y: 'SCRX', a: 4}           
         ],
         xkey: 'y',
         ykeys: ['a'],

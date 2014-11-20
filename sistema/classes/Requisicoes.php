@@ -27,7 +27,7 @@ class Requisicoes {
     }
     
     public function relatorioRequisicao() {
-        $tipo = 1;
+        $tipo = 2;
         $listrequisicao =  $this->DAOr->relatorioModelo($tipo);
         $k = 0; 
         $this->totalReq = 0;

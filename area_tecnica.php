@@ -45,8 +45,7 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
         $dados_data = array('data_estimada'=>$dados['data_estimada'],'id_servico'=>$dados['id_servico']);
         $servico->atualizarTempo($dados_data);
         header("Refresh:0"); 
-        unset($_REQUEST,$dados);
-        header("Refresh:0");         
+        unset($_REQUEST,$dados);                 
     }  
     if (isset($dados['status'])) {        
         $dados_status = array('status'=>$dados['status'],'id_servico'=>$dados['id_servico']);
@@ -57,6 +56,8 @@ if ($_SESSION['ID'] && $_SESSION['ID2']) {
     if (isset($dados['solucao'])) {        
         $dados_solucao = array('solucao'=>$dados['solucao'],'id_servico'=>$dados['id_servico']);
         $servico->functionSolucao($dados_solucao);
+        header("Refresh:0"); 
+        unset($_REQUEST,$dados);
     } 
 
 

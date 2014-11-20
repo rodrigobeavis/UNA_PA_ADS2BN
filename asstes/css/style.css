@@ -2,6 +2,9 @@ body{
     background-image:url("../img/grey_@2X.png");
 
 }
+.container{
+    width: 100%;
+}
 
 .headerindex{
     font-size: 25px;
@@ -10,30 +13,10 @@ body{
 
 body{
     margin: 0px;
-    padding: 10px;
+    padding: 0px;
     background-color: #ccc;
     font-family: Arial;
     font-size: 12px;
-}
-
-.meio{
-    margin: 0px auto;
-    margin-top: 10px;
-    padding: 10px;
-    width: 940px;
-    background-color: #fff;
-}
-
-.esquerda{
-    width: 240px;
-    height: 100px;
-    float: left;
-}
-
-.direita{
-    width: 660px;
-    float: right;
-    padding-left: 40px;
 }
 
 .logo{

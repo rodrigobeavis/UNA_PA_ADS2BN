@@ -65,6 +65,7 @@
                                                 </tr>
                                             {/section}
                                         </tbody>
+                                        <input id="total_loop_req" type="hidden" value="{$smarty.section.req.loop}" >
                                         <tfoot><th colspan="2">Total</th><td align="center">{$total_req}</td></tfoot>
                                     </table>
                                 </div>

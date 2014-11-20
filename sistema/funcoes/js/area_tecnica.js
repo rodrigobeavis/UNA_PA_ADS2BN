@@ -49,10 +49,6 @@ $(function sinalizaAtraso() {
             }
 
         }
-
-
-
-
     }
 
     for (var i = 0; i < T_inc; i++) {
